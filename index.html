@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/img/triple-bottles-720.webp"
         imagesrcset="assets/img/triple-bottles-360.webp 360w, assets/img/triple-bottles-720.webp 720w"
         imagesizes="(min-width: 1024px) 500px, 90vw">
-<link rel="stylesheet" href="assets/app.css?v=29ef085f">
+<link rel="stylesheet" href="assets/app.css?v=55a8304b">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -665,7 +665,7 @@
           <!-- один кадр: листание происходит внутри него.
                На десктопе кадр растягивается на всю высоту колонки, чтобы его
                низ совпадал с низом карточки заказа (как в макете). -->
-          <div class="slider-viewport relative h-[420px] overflow-hidden rounded-[40px] sm:h-[480px] lg:h-auto lg:min-h-[500px] lg:flex-1"
+          <div class="slider-viewport relative h-[480px] overflow-hidden rounded-[40px] lg:h-auto lg:min-h-[500px] lg:flex-1"
                :class="dragging && 'is-dragging'"
                @pointerdown="onDown($event)" @pointermove="onMove($event)" @pointerup="onUp()" @pointercancel="onUp()" @pointerleave="startX !== null && onUp()">
 
@@ -716,12 +716,12 @@
               <div class="slider-slide absolute inset-0" :inert="index !== 1" :style="slideStyle(1)">
                 <div class="relative h-full overflow-hidden bg-[#0b304a]">
                   <div class="slider-layer absolute inset-0" :style="layerStyle(1)">
-                    <!-- на телефоне вихрь раньше пропадал: композиция в канве 680×532
-                         обрезалась, поэтому здесь он отдельным слоем на весь кадр -->
-                    <div class="pointer-events-none absolute inset-0 opacity-40 mix-blend-luminosity sm:hidden"
-                         style="background-image: url('assets/img/hero-light-swirl.webp'); background-size: cover; background-position: 50% 50%"></div>
                     <div class="absolute inset-0" style="background-image: linear-gradient(101.47deg in oklab, #ffffff -9.5%, #31aaff 113.5%)"></div>
                     <div class="absolute -left-[119px] top-0 h-full w-[1181px] opacity-50" style="background-image: linear-gradient(187.04deg in oklab, #ffffff 6.25%, #32aaff 91.36%)"></div>
+                    <!-- на телефоне вихрь лежит отдельным слоем поверх градиентов:
+                         внутри канвы 680×532 он обрезался и пропадал -->
+                    <div class="pointer-events-none absolute inset-0 opacity-30 mix-blend-luminosity sm:hidden"
+                         style="background-image: url('assets/img/hero-light-swirl.webp'); background-size: cover; background-position: 50% 50%"></div>
                     <div class="hero-canvas hero-canvas-gift absolute right-0 bottom-0 top-auto h-[532px] w-[680px] sm:bottom-auto sm:top-0"
                          :style="`--art-scale:${artScaleGift}; --art-x:${artX}px; --art-y:${artY}px`">
                     <div class="absolute left-[-120px] top-[536px] h-[1080px] w-[540px] origin-top-left rotate-[270deg] opacity-50 mix-blend-luminosity max-sm:hidden"
@@ -1553,7 +1553,7 @@
   </div>
 </div>
 
-<script src="assets/app.js?v=76948e75" defer></script>
+<script src="assets/app.js?v=49f3608a" defer></script>
 <script src="assets/alpine.min.js" defer></script>
 
 <!-- ================= MODAL: УДАЛИТЬ ТОВАР ================= -->

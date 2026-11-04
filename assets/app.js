@@ -382,8 +382,8 @@ document.addEventListener('alpine:init', () => {
         if (w < 640) {
           const s = Math.min(0.62, Math.max(0.42, w / 640));
           this.artScale = s;
-          /* подарок: две бутыли в кадре шире остальных композиций — ужимаем сильнее */
-          this.artScaleGift = s * 0.8;
+          /* подарок: две бутыли в кадре шире остальных композиций — ужимаем чуть сильнее */
+          this.artScaleGift = s * 0.9;
           this.artX = 0;
           /* сдвиг в пикселях кадра: композиция прижата к нижнему правому углу */
           this.artY = Math.round(Math.max(0, h - 532 * s) * 0.42);
