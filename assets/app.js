@@ -824,7 +824,12 @@ document.addEventListener('alpine:init', () => {
       window.addEventListener('nv:cart-added', () => this.showTemporarily());
     },
 
+    /* на телефоне панель корзины не нужна: тап по иконке сразу ведёт в корзину */
+    get wide() {
+      return typeof window.matchMedia === 'function' && window.matchMedia('(min-width: 1024px)').matches;
+    },
     show() {
+      if (!this.wide) return;
       clearTimeout(this.timer);
       this.open = true;
     },
@@ -833,6 +838,7 @@ document.addEventListener('alpine:init', () => {
       this.timer = setTimeout(() => (this.open = false), 260);
     },
     showTemporarily() {
+      if (!this.wide) return;
       this.show();
       clearTimeout(this.hold);
       this.hold = setTimeout(() => (this.open = false), 4200);

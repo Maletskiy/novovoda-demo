@@ -7,7 +7,7 @@
 <title>Настройки профиля — «Новокурьинская»</title>
 <meta name="theme-color" content="#003090">
 <link rel="preload" href="assets/fonts/montserrat-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/app.css?v=083b35ea">
+<link rel="stylesheet" href="assets/app.css?v=653a4dbf">
 <link rel="icon" href="assets/img/logo-novovoda.svg">
 </head>
 
@@ -895,12 +895,16 @@
   </div>
 </div>
 
-<div x-data x-show="$store.cart.toast" x-cloak x-transition.opacity
-     class="pointer-events-none fixed inset-x-0 bottom-8 z-50 flex justify-center px-4">
-  <div class="animate-pop-in rounded-2xl bg-ink px-4 py-3 text-sm font-medium text-white shadow-lift" x-text="$store.cart.toast"></div>
+<div x-data x-show="$store.cart.toast" x-cloak
+     x-transition:enter="transition duration-300 ease-smooth"
+     x-transition:enter-start="opacity-0 translate-y-8" x-transition:enter-end="opacity-100 translate-y-0"
+     x-transition:leave="transition duration-250 ease-smooth"
+     x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-8"
+     class="pointer-events-none fixed inset-x-0 bottom-24 z-50 flex justify-center px-4 lg:bottom-8">
+  <div class="rounded-2xl bg-ink px-4 py-2.5 text-[14px] font-medium text-white shadow-lift" x-text="$store.cart.toast"></div>
 </div>
 
-<script src="assets/app.js?v=82417804" defer></script>
+<script src="assets/app.js?v=90a81216" defer></script>
 <script>
   function accountPage() {
     return {
