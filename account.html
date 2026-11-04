@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Настройки профиля — «Новокурьинская»</title>
+<meta name="theme-color" content="#003090">
+<link rel="preload" href="assets/fonts/montserrat-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/app.css?v=08be79f0">
+<link rel="icon" href="assets/img/logo-novovoda.svg">
+</head>
+
+<body class="no-tap" x-data="accountPage()">
+
+<svg id="ph-sprite" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+<symbol id="ph-beer-bottle" viewBox="0 0 256 256"><path d="M245.66,42.34l-32-32a8,8,0,0,0-11.32,11.32l1.48,1.47L148.65,64.51l-38.22,7.65a8.05,8.05,0,0,0-4.09,2.18L23,157.66a24,24,0,0,0,0,33.94L64.4,233a24,24,0,0,0,33.94,0l83.32-83.31a8,8,0,0,0,2.18-4.09l7.65-38.22,41.38-55.17,1.47,1.48a8,8,0,0,0,11.32-11.32ZM96,107.31,148.69,160,104,204.69,51.31,152ZM81.37,224a7.94,7.94,0,0,1-5.65-2.34L34.34,180.28a8,8,0,0,1,0-11.31L40,163.31,92.69,216,87,221.66A8,8,0,0,1,81.37,224ZM177.6,99.2a7.92,7.92,0,0,0-1.44,3.23l-7.53,37.63L160,148.69,107.31,96l8.63-8.63,37.63-7.53a7.92,7.92,0,0,0,3.23-1.44l58.45-43.84,6.19,6.19Z"/></symbol><symbol id="ph-caret-down" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></symbol><symbol id="ph-chat-circle" viewBox="0 0 256 256"><path d="M128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></symbol><symbol id="ph-check" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol><symbol id="ph-check-fat" viewBox="0 0 256 256"><path d="M243.31,90.91l-128.4,128.4a16,16,0,0,1-22.62,0l-71.62-72a16,16,0,0,1,0-22.61l20-20a16,16,0,0,1,22.58,0L104,144.22l96.76-95.57a16,16,0,0,1,22.59,0l19.95,19.54A16,16,0,0,1,243.31,90.91Z"/></symbol><symbol id="ph-coffee" viewBox="0 0 256 256"><path d="M80,56V24a8,8,0,0,1,16,0V56a8,8,0,0,1-16,0Zm40,8a8,8,0,0,0,8-8V24a8,8,0,0,0-16,0V56A8,8,0,0,0,120,64Zm32,0a8,8,0,0,0,8-8V24a8,8,0,0,0-16,0V56A8,8,0,0,0,152,64Zm96,56v8a40,40,0,0,1-37.51,39.91,96.59,96.59,0,0,1-27,40.09H208a8,8,0,0,1,0,16H32a8,8,0,0,1,0-16H56.54A96.3,96.3,0,0,1,24,136V88a8,8,0,0,1,8-8H208A40,40,0,0,1,248,120ZM200,96H40v40a80.27,80.27,0,0,0,45.12,72h69.76A80.27,80.27,0,0,0,200,136Zm32,24a24,24,0,0,0-16-22.62V136a95.78,95.78,0,0,1-1.2,15A24,24,0,0,0,232,128Z"/></symbol><symbol id="ph-cookie" viewBox="0 0 256 256"><path d="M164.49,163.51a12,12,0,1,1-17,0A12,12,0,0,1,164.49,163.51Zm-81-8a12,12,0,1,0,17,0A12,12,0,0,0,83.51,155.51Zm9-39a12,12,0,1,0-17,0A12,12,0,0,0,92.49,116.49Zm48-1a12,12,0,1,0,0,17A12,12,0,0,0,140.49,115.51ZM232,128A104,104,0,1,1,128,24a8,8,0,0,1,8,8,40,40,0,0,0,40,40,8,8,0,0,1,8,8,40,40,0,0,0,40,40A8,8,0,0,1,232,128Zm-16.31,7.39A56.13,56.13,0,0,1,168.5,87.5a56.13,56.13,0,0,1-47.89-47.19,88,88,0,1,0,95.08,95.08Z"/></symbol><symbol id="ph-credit-card" viewBox="0 0 256 256"><path d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48Zm0,16V88H32V64Zm0,128H32V104H224v88Zm-16-24a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h32A8,8,0,0,1,208,168Zm-64,0a8,8,0,0,1-8,8H120a8,8,0,0,1,0-16h16A8,8,0,0,1,144,168Z"/></symbol><symbol id="ph-cylinder" viewBox="0 0 256 256"><path d="M128,16C87.63,16,56,35.33,56,60V196c0,24.67,31.63,44,72,44s72-19.33,72-44V60C200,35.33,168.37,16,128,16Zm0,16c26.49,0,56,11.5,56,28s-29.51,28-56,28S72,76.5,72,60,101.51,32,128,32Zm0,192c-29.83,0-56-13.08-56-28V88c13.1,9.85,33.14,16,56,16s42.9-6.2,56-16V196C184,210.92,157.83,224,128,224Z"/></symbol><symbol id="ph-drop" viewBox="0 0 256 256"><path d="M174,47.75a254.19,254.19,0,0,0-41.45-38.3,8,8,0,0,0-9.18,0A254.19,254.19,0,0,0,82,47.75C54.51,79.32,40,112.6,40,144a88,88,0,0,0,176,0C216,112.6,201.49,79.32,174,47.75ZM128,216a72.08,72.08,0,0,1-72-72c0-57.23,55.47-105,72-118,16.53,13,72,60.75,72,118A72.08,72.08,0,0,1,128,216Zm55.89-62.66a57.6,57.6,0,0,1-46.56,46.55A8.75,8.75,0,0,1,136,200a8,8,0,0,1-1.32-15.89c16.57-2.79,30.63-16.85,33.44-33.45a8,8,0,0,1,15.78,2.68Z"/></symbol><symbol id="ph-file-text" viewBox="0 0 256 256"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></symbol><symbol id="ph-fork-knife" viewBox="0 0 256 256"><path d="M72,88V40a8,8,0,0,1,16,0V88a8,8,0,0,1-16,0ZM216,40V224a8,8,0,0,1-16,0V176H152a8,8,0,0,1-8-8,268.75,268.75,0,0,1,7.22-56.88c9.78-40.49,28.32-67.63,53.63-78.47A8,8,0,0,1,216,40ZM200,53.9c-32.17,24.57-38.47,84.42-39.7,106.1H200ZM119.89,38.69a8,8,0,1,0-15.78,2.63L112,88.63a32,32,0,0,1-64,0l7.88-47.31a8,8,0,1,0-15.78-2.63l-8,48A8.17,8.17,0,0,0,32,88a48.07,48.07,0,0,0,40,47.32V224a8,8,0,0,0,16,0V135.32A48.07,48.07,0,0,0,128,88a8.17,8.17,0,0,0-.11-1.31Z"/></symbol><symbol id="ph-gift" viewBox="0 0 256 256"><path d="M216,72H180.92c.39-.33.79-.65,1.17-1A29.53,29.53,0,0,0,192,49.57,32.62,32.62,0,0,0,158.44,16,29.53,29.53,0,0,0,137,25.91a54.94,54.94,0,0,0-9,14.48,54.94,54.94,0,0,0-9-14.48A29.53,29.53,0,0,0,97.56,16,32.62,32.62,0,0,0,64,49.57,29.53,29.53,0,0,0,73.91,71c.38.33.78.65,1.17,1H40A16,16,0,0,0,24,88v32a16,16,0,0,0,16,16v64a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V136a16,16,0,0,0,16-16V88A16,16,0,0,0,216,72ZM149,36.51a13.69,13.69,0,0,1,10-4.5h.49A16.62,16.62,0,0,1,176,49.08a13.69,13.69,0,0,1-4.5,10c-9.49,8.4-25.24,11.36-35,12.4C137.7,60.89,141,45.5,149,36.51Zm-64.09.36A16.63,16.63,0,0,1,96.59,32h.49a13.69,13.69,0,0,1,10,4.5c8.39,9.48,11.35,25.2,12.39,34.92-9.72-1-25.44-4-34.92-12.39a13.69,13.69,0,0,1-4.5-10A16.6,16.6,0,0,1,84.87,36.87ZM40,88h80v32H40Zm16,48h64v64H56Zm144,64H136V136h64Zm16-80H136V88h80v32Z"/></symbol><symbol id="ph-list" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></symbol><symbol id="ph-map-pin" viewBox="0 0 256 256"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></symbol><symbol id="ph-map-pin-fill" viewBox="0 0 256 256"><path d="M128,16a88.1,88.1,0,0,0-88,88c0,75.3,80,132.17,83.41,134.55a8,8,0,0,0,9.18,0C136,236.17,216,179.3,216,104A88.1,88.1,0,0,0,128,16Zm0,56a32,32,0,1,1-32,32A32,32,0,0,1,128,72Z"/></symbol><symbol id="ph-monitor" viewBox="0 0 256 256"><path d="M208,40H48A24,24,0,0,0,24,64V176a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V64A24,24,0,0,0,208,40Zm8,136a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V64a8,8,0,0,1,8-8H208a8,8,0,0,1,8,8Zm-48,48a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,224Z"/></symbol><symbol id="ph-phone" viewBox="0 0 256 256"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"/></symbol><symbol id="ph-plus" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></symbol><symbol id="ph-shield-check" viewBox="0 0 256 256"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></symbol><symbol id="ph-shopping-cart-simple" viewBox="0 0 256 256"><path d="M104,216a16,16,0,1,1-16-16A16,16,0,0,1,104,216Zm88-16a16,16,0,1,0,16,16A16,16,0,0,0,192,200ZM239.71,74.14l-25.64,92.28A24.06,24.06,0,0,1,191,184H92.16A24.06,24.06,0,0,1,69,166.42L33.92,40H16a8,8,0,0,1,0-16H40a8,8,0,0,1,7.71,5.86L57.19,64H232a8,8,0,0,1,7.71,10.14ZM221.47,80H61.64l22.81,82.14A8,8,0,0,0,92.16,168H191a8,8,0,0,0,7.71-5.86Z"/></symbol><symbol id="ph-sign-out" viewBox="0 0 256 256"><path d="M120,216a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H56V208h56A8,8,0,0,1,120,216Zm109.66-93.66-40-40a8,8,0,0,0-11.32,11.32L204.69,120H112a8,8,0,0,0,0,16h92.69l-26.35,26.34a8,8,0,0,0,11.32,11.32l40-40A8,8,0,0,0,229.66,122.34Z"/></symbol><symbol id="ph-sliders-horizontal" viewBox="0 0 256 256"><path d="M40,88H73a32,32,0,0,0,62,0h81a8,8,0,0,0,0-16H135a32,32,0,0,0-62,0H40a8,8,0,0,0,0,16Zm64-24A16,16,0,1,1,88,80,16,16,0,0,1,104,64ZM216,168H199a32,32,0,0,0-62,0H40a8,8,0,0,0,0,16h97a32,32,0,0,0,62,0h17a8,8,0,0,0,0-16Zm-48,24a16,16,0,1,1,16-16A16,16,0,0,1,168,192Z"/></symbol><symbol id="ph-squares-four" viewBox="0 0 256 256"><path d="M104,40H56A16,16,0,0,0,40,56v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,104,40Zm0,64H56V56h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,64H152V56h48v48Zm-96,32H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm0,64H56V152h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Zm0,64H152V152h48v48Z"/></symbol><symbol id="ph-star" viewBox="0 0 256 256"><path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z"/></symbol><symbol id="ph-ticket" viewBox="0 0 256 256"><path d="M232,104a8,8,0,0,0,8-8V64a16,16,0,0,0-16-16H32A16,16,0,0,0,16,64V96a8,8,0,0,0,8,8,24,24,0,0,1,0,48,8,8,0,0,0-8,8v32a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V160a8,8,0,0,0-8-8,24,24,0,0,1,0-48ZM32,167.2a40,40,0,0,0,0-78.4V64H88V192H32Zm192,0V192H104V64H224V88.8a40,40,0,0,0,0,78.4Z"/></symbol><symbol id="ph-trash" viewBox="0 0 256 256"><path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"/></symbol><symbol id="ph-user" viewBox="0 0 256 256"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/></symbol><symbol id="ph-wrench" viewBox="0 0 256 256"><path d="M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"/></symbol><symbol id="ph-x" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></symbol></svg>
+<svg width="0" height="0" class="absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="nvDropGrad" x1="0.15" y1="0" x2="0.5" y2="1">
+      <stop offset="0" stop-color="#9BDCF8"/>
+      <stop offset="0.5" stop-color="#3C84E8"/>
+      <stop offset="1" stop-color="#003090"/>
+    </linearGradient>
+    <linearGradient id="nvDropBg" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#EAF6FD"/>
+      <stop offset="1" stop-color="#CFE8F8"/>
+    </linearGradient>
+  </defs>
+  <symbol id="nv-drop-face" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="23" fill="url(#nvDropBg)"/>
+    <path d="M24 8c0 0 13 14.2 13 22.4A13 13 0 0 1 11 30.4C11 22.2 24 8 24 8z" fill="url(#nvDropGrad)"/>
+    <ellipse cx="18.4" cy="19.4" rx="2.6" ry="3.6" transform="rotate(-24 18.4 19.4)" fill="#fff" fill-opacity="0.5"/>
+    <circle cx="19.4" cy="30.2" r="2.15" fill="#062A55"/>
+    <circle cx="28.6" cy="30.2" r="2.15" fill="#062A55"/>
+    <circle cx="20.1" cy="29.4" r="0.75" fill="#fff"/>
+    <circle cx="29.3" cy="29.4" r="0.75" fill="#fff"/>
+    <path d="M20.4 35.6c1.5 1.7 5.7 1.7 7.2 0" stroke="#062A55" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <ellipse cx="14.6" cy="33.4" rx="2" ry="1.4" fill="#FF9EB5" fill-opacity="0.75"/>
+    <ellipse cx="33.4" cy="33.4" rx="2" ry="1.4" fill="#FF9EB5" fill-opacity="0.75"/>
+  </symbol>
+  <symbol id="nv-drop-face-sm" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="23" fill="url(#nvDropBg)"/>
+    <path d="M24 8c0 0 13 14.2 13 22.4A13 13 0 0 1 11 30.4C11 22.2 24 8 24 8z" fill="url(#nvDropGrad)"/>
+    <circle cx="19.4" cy="30.2" r="2.15" fill="#062A55"/>
+    <circle cx="28.6" cy="30.2" r="2.15" fill="#062A55"/>
+    <path d="M20.4 35.6c1.5 1.7 5.7 1.7 7.2 0" stroke="#062A55" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </symbol>
+</svg>
+
+<!-- ================= MODAL: ОБРАТНЫЙ ЗВОНОК ================= -->
+<div x-data="callbackModal" @open-callback.window="show()" @keydown.escape.window="hide()">
+  <div x-show="open" x-cloak class="fixed inset-0 z-[60] flex items-end justify-center p-0 sm:items-center sm:p-4">
+    <div x-show="open" x-transition.opacity class="absolute inset-0 bg-ink/60 backdrop-blur-sm" @click="hide()"></div>
+
+    <div x-show="open" x-transition:enter="transition duration-300 ease-smooth"
+         x-transition:enter-start="opacity-0 translate-y-6 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+         x-transition:leave="transition duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+         role="dialog" aria-modal="true" aria-labelledby="cb-title"
+         class="relative w-full max-w-lg overflow-hidden rounded-t-4xl bg-white shadow-2xl sm:rounded-3xl">
+
+      <!-- header -->
+      <div class="flex items-start gap-3 border-b border-slate-100 bg-gradient-to-br from-navy-50 to-white px-5 py-4">
+        <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-accent-500 text-white">
+          <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-phone"/></svg>
+        </span>
+        <div class="min-w-0 flex-1">
+          <h2 id="cb-title" class="text-lg font-bold leading-tight">Заказать звонок</h2>
+          <p class="mt-0.5 text-[13px] text-ink-soft">Перезвоним в течение 5 минут и ответим на вопросы</p>
+        </div>
+        <button type="button" class="btn-icon !h-9 !w-9 !border-0 !bg-transparent" @click="hide()" aria-label="Закрыть">
+          <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-x"/></svg>
+        </button>
+      </div>
+
+      <!-- success -->
+      <div x-show="sent" x-cloak class="px-5 py-10 text-center">
+        <span class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-accent-50 text-accent-600">
+          <svg class="h-7 w-7" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-check"/></svg>
+        </span>
+        <h3 class="mt-4 text-lg font-bold">Заявка отправлена</h3>
+        <p class="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-ink-soft">
+          Перезвоним на <strong class="text-ink" x-text="form.phone"></strong> в течение 5 минут в рабочее время (8:00–22:30).
+        </p>
+        <button type="button" class="btn-primary mt-5" @click="hide()">Хорошо</button>
+      </div>
+
+      <!-- form -->
+      <form x-show="!sent" @submit.prevent="submit()" class="max-h-[70vh] space-y-3.5 overflow-y-auto px-5 py-5">
+
+        <!-- тема: кастомный дропдаун -->
+        <div class="relative" x-data="{ tOpen: false }" @keydown.escape.stop="tOpen = false">
+          <span class="label" id="cb-topic-label">Тема обращения</span>
+          <button type="button" @click="tOpen = !tOpen" @click.outside="tOpen = false" :aria-expanded="tOpen"
+                  aria-labelledby="cb-topic-label" aria-haspopup="listbox"
+                  class="field flex items-center justify-between gap-2 text-left"
+                  :class="tOpen && '!border-accent-500 ring-4 ring-accent-500/15'">
+            <span x-text="form.topic"></span>
+            <svg class="h-4 w-4 shrink-0 text-ink-mute transition" :class="tOpen && 'rotate-180'" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-caret-down"/></svg>
+          </button>
+
+          <div x-show="tOpen" x-cloak x-transition.opacity.duration.150ms
+               class="dropdown-panel left-0 right-0 top-full max-h-64 overflow-y-auto" role="listbox" aria-labelledby="cb-topic-label">
+            <template x-for="t in topics" :key="t">
+              <button type="button" role="option" :aria-selected="form.topic === t"
+                      @click="form.topic = t; tOpen = false"
+                      class="dropdown-item" :class="form.topic === t && 'dropdown-item-active'">
+                <span x-text="t"></span>
+                <svg x-show="form.topic === t" class="h-4 w-4 shrink-0 text-accent-600" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-check-fat"/></svg>
+              </button>
+            </template>
+          </div>
+        </div>
+
+        <div class="grid gap-3 sm:grid-cols-2">
+          <div>
+            <label class="label" for="cb-name">ФИО <span class="text-sale-500">*</span></label>
+            <input id="cb-name" type="text" autocomplete="name" required placeholder="Иванова Анна" class="field" x-model="form.name">
+          </div>
+          <div>
+            <label class="label" for="cb-phone">Телефон <span class="text-sale-500">*</span></label>
+            <input id="cb-phone" type="tel" inputmode="numeric" autocomplete="tel" required
+                   placeholder="+7 (999) 999-99-99" class="field"
+                   :value="form.phone" @input="onPhone($event)" @keydown="onPhoneKey($event)">
+          </div>
+        </div>
+
+        <div>
+          <label class="label" for="cb-email">Электронный адрес</label>
+          <input id="cb-email" type="email" autocomplete="email" placeholder="mail@example.ru" class="field" x-model="form.email">
+        </div>
+
+        <div>
+          <label class="label" for="cb-comment">Комментарий</label>
+          <textarea id="cb-comment" rows="3" placeholder="Удобное время для звонка, адрес, вопрос" class="field resize-none" x-model="form.comment"></textarea>
+        </div>
+
+        <!-- согласие -->
+        <label class="flex cursor-pointer items-start gap-3 rounded-2xl bg-slate-50 p-3.5 transition hover:bg-slate-100/70">
+          <input type="checkbox" required x-model="form.consent" class="peer sr-only"><span class="checkbox" aria-hidden="true"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-check-fat"/></svg></span>
+          <span class="text-[14px] leading-relaxed text-ink-soft">
+            Я ознакомился с <a href="#" class="link-underline">Политикой обработки персональных данных</a>
+            и даю <a href="#" class="link-underline">Согласие на обработку персональных данных</a>
+            в соответствии с ФЗ «О персональных данных» от 27.07.2006 №127-ФЗ
+            <span class="text-sale-500">*</span>
+          </span>
+        </label>
+
+        <div class="flex flex-col gap-2 pt-1 sm:flex-row-reverse sm:items-center">
+          <button type="submit" class="btn-primary flex-1 !py-3.5" :disabled="!valid"
+                  :class="!valid && '!bg-slate-200 !text-ink-mute !shadow-none'">Отправить</button>
+          <button type="button" class="btn-ghost flex-1" @click="hide()">Отмена</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<header x-data="headerScroll" class="sticky top-0 z-30 border-b transition-colors duration-300"
+        :class="scrolled ? 'is-pinned border-slate-200 bg-white/95 backdrop-blur-[12px]' : 'border-transparent bg-transparent'">
+  <!-- строка 1 -->
+  <div class="mx-auto flex w-full max-w-[1200px] items-center gap-5 px-4 py-4 lg:px-0">
+
+    <div class="flex min-w-0 flex-1 items-center gap-6">
+      <div class="flex shrink-0 items-center gap-4">
+        <button type="button" class="btn-icon -ml-1 lg:hidden" @click="$dispatch('open-menu')" aria-label="Открыть меню">
+          <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-list"/></svg>
+        </button>
+
+        <div class="hidden lg:block"><div class="relative" x-data="{ mega: false, t: null }"
+             @mouseenter="clearTimeout(t); mega = true" @mouseleave="t = setTimeout(() => mega = false, 180)"
+             @focusin="mega = true" @focusout="if (!$el.contains($event.relatedTarget)) mega = false"
+             @keydown.escape="mega = false">
+          <a href="catalog.html" class="inline-flex items-center gap-2 rounded-2xl bg-[#1d366d] px-5 py-4 text-[14px] font-semibold uppercase leading-6 tracking-[0.7px] text-white transition hover:bg-[#172c5a]" :aria-expanded="mega" aria-haspopup="true">
+            <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-squares-four"/></svg>
+            Каталог
+          </a>
+
+          <div x-show="mega" x-cloak x-transition.opacity.duration.150ms
+               class="absolute left-0 top-full z-40 mt-2 w-[600px] overflow-hidden rounded-3xl border border-slate-200 bg-white p-3 shadow-lift">
+            <div class="grid grid-cols-2 gap-x-2 gap-y-0.5">
+            <a href="catalog.html" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-drop"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Вода</span>
+            </a>
+            <a href="catalog.html" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-gift"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Комбо-наборы</span>
+            </a>
+            <a href="catalog.html#goods" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-coffee"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Кофе и чай</span>
+            </a>
+            <a href="catalog.html#goods" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-cookie"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Сладости</span>
+            </a>
+            <a href="catalog.html#goods" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-fork-knife"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Одноразовая посуда</span>
+            </a>
+            <a href="catalog.html#coolers" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-cylinder"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Кулеры и помпы</span>
+            </a>
+            <a href="index.html#faq" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-shield-check"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Профилактика</span>
+            </a>
+            <a href="index.html#faq" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-wrench"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Ремонт</span>
+            </a>
+            <a href="catalog.html" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-beer-bottle"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Тара</span>
+            </a>
+            </div>
+            <div class="mt-2 flex items-center justify-between gap-3 rounded-2xl bg-deep-50 px-4 py-3">
+              <p class="text-[13px] font-semibold leading-snug text-deep-700">Не знаете, что выбрать?<br>Подберём за 5 минут</p>
+              <button type="button" @click="$dispatch('open-callback')" class="btn-deep btn-sm shrink-0">Заказать звонок</button>
+            </div>
+          </div>
+        </div></div>
+
+        <a href="index.html" class="flex shrink-0 items-center sm:hidden" aria-label="Новокурьинская — на главную">
+          <img src="assets/img/logo-novovoda.svg" alt="Вода «Новокурьинская»" width="111" height="72"
+               class="h-9 w-auto" fetchpriority="high">
+        </a>
+
+        <button type="button" @click="$dispatch('open-callback')"
+                class="hidden shrink-0 place-items-center rounded-2xl bg-[#31aaff] p-[18px] text-white transition hover:bg-[#1b93eb] lg:grid"
+                aria-label="Заказать обратный звонок">
+          <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-phone"/></svg>
+        </button>
+      </div>
+
+      <div class="hidden min-w-0 flex-col justify-center gap-1 md:flex" x-data="cityPhone">
+        <div x-data="cityPicker" class="relative">
+          <button type="button" @click="open = !open" @click.outside="open = false" :aria-expanded="open"
+                  class="flex items-center gap-2 rounded-lg text-[14px] font-semibold uppercase tracking-[0.7px] text-[#0a1a33]/70 transition hover:text-[#1b93eb]">
+            <span x-text="city"></span>
+            <svg class="h-4 w-4 shrink-0 transition" :class="open && 'rotate-180'" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-caret-down"/></svg>
+          </button>
+          <div x-show="open" x-cloak x-transition.opacity.duration.150ms class="dropdown-panel left-0 top-full mt-2 w-60">
+            <p class="px-3 py-1.5 text-[12px] font-semibold uppercase tracking-wider text-ink-mute">Доставляем в 11 городах</p>
+            <div class="max-h-72 overflow-y-auto">
+              <template x-for="c in cities" :key="c">
+                <button type="button" @click="pick(c)" class="dropdown-item" :class="city === c && 'dropdown-item-active'">
+                  <span x-text="c"></span>
+                  <svg x-show="city === c" class="h-3.5 w-3.5 shrink-0 text-navy-600" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-check-fat"/></svg>
+                </button>
+              </template>
+            </div>
+          </div>
+        </div>
+        <a :href="'tel:' + phone.raw" :aria-label="'Позвонить: ' + phone.pretty"
+           class="whitespace-nowrap text-[18px] font-medium leading-6 text-[#071621] transition hover:text-[#1b93eb] lg:text-[20px]"
+           x-text="phone.pretty">+7 (343) 270-77-77</a>
+      </div>
+    </div>
+
+    <a href="index.html" class="hidden shrink-0 items-center justify-center sm:flex" aria-label="Новокурьинская — на главную">
+      <img src="assets/img/logo-novovoda.svg" alt="Вода «Новокурьинская»" width="111" height="72"
+           class="h-12 w-auto sm:h-[60px] lg:h-[72px]" fetchpriority="high">
+    </a>
+
+    <div class="flex min-w-0 flex-1 items-center justify-end">
+      <div class="flex items-center gap-1 sm:gap-2" x-data="cartFlyout"
+     @mouseleave="scheduleClose()">
+
+      <!-- профиль -->
+      <div x-data="accountMenu" class="relative max-sm:static"
+           @mouseenter="openMenu()" @mouseleave="scheduleClose()"
+           @focusin="cancelClose()" @click.outside="closeNow()" @focusout="if (!$el.contains($event.relatedTarget)) closeNow()"
+           @keydown.escape="closeNow()">
+        <button type="button" @click="plateClick($event)" :aria-expanded="open"
+                :aria-label="logged ? 'Профиль — ' + name : 'Войти в личный кабинет'"
+                class="group flex min-w-[56px] flex-col items-center gap-1 rounded-2xl p-2 text-ink transition-colors duration-200 min-[380px]:min-w-[64px] min-[380px]:p-3 sm:min-w-[80px]"
+                :class="scrolled ? 'hover:bg-[#f1f5f9]' : 'hover:bg-white'">
+          <span class="relative grid h-10 w-10 place-items-center">
+            <template x-if="!logged">
+              <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-user"/></svg>
+            </template>
+            <template x-if="logged && !avatarSrc">
+              <svg class="h-10 w-10 overflow-hidden rounded-full shadow-[0_0_0_1px_#e2e8f0]" viewBox="0 0 48 48" aria-hidden="true"><use href="#nv-drop-face"/></svg>
+            </template>
+            <template x-if="logged && avatarSrc">
+              <img :src="avatarSrc" alt="" width="40" height="40" class="h-10 w-10 rounded-full object-cover shadow-[0_0_0_1px_#e2e8f0]">
+            </template>
+          </span>
+          <span class="hidden whitespace-nowrap text-[12px] font-medium leading-4 text-[#0a1a33] min-[380px]:block" x-text="logged ? firstName : 'Войти'"></span>
+        </button>
+
+        <!-- мостик через зазор mt-3: пока курсор идёт от плашки к панели,
+             он остаётся внутри обёртки и меню не закрывается -->
+        <div x-show="open && canHover" x-cloak aria-hidden="true" class="absolute right-0 top-full h-4 w-[21rem]"></div>
+
+        <div x-show="open" x-cloak x-transition.opacity.duration.150ms
+             class="dropdown-panel right-0 top-full mt-3 w-[21rem] !p-0 max-sm:left-4 max-sm:right-4 max-sm:mt-1 max-sm:w-auto">
+          <div class="flex items-center gap-3.5 border-b border-slate-100 bg-gradient-to-br from-navy-50 to-white p-4">
+            <span class="grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-2xl ring-1 ring-navy-100">
+              <template x-if="!avatarSrc">
+                <svg class="h-full w-full" viewBox="0 0 48 48" aria-hidden="true"><use href="#nv-drop-face"/></svg>
+              </template>
+              <template x-if="avatarSrc">
+                <img :src="avatarSrc" alt="" width="56" height="56" class="h-full w-full object-cover">
+              </template>
+            </span>
+            <div class="min-w-0">
+              <p class="truncate text-[16px] font-bold leading-6" x-text="logged ? name : 'Гость'"></p>
+              <p class="truncate text-[13px] leading-5 text-ink-mute" x-text="logged ? email : 'Войдите, чтобы видеть заказы'"></p>
+            </div>
+          </div>
+
+          <nav class="p-2" aria-label="Личный кабинет">
+            <a href="account.html" class="dropdown-item !justify-start !gap-3 !px-3.5 !py-2.5 text-[16px]">
+              <svg class="h-5 w-5 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-user"/></svg>
+              Личный кабинет
+            </a>
+            <a href="orders.html" class="dropdown-item !justify-start !gap-3 !px-3.5 !py-2.5 text-[16px]">
+              <svg class="h-5 w-5 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-file-text"/></svg>
+              Мои заказы
+            </a>
+            <a href="account.html#bonuses" class="dropdown-item !justify-start !gap-3 !px-3.5 !py-2.5 text-[16px]">
+              <svg class="h-5 w-5 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-star"/></svg>
+              <span class="flex-1">Бонусы</span>
+              <span class="pill bg-accent-50 !px-2.5 !py-1 text-[13px] text-accent-700" x-text="bonus + ' б.'"></span>
+            </a>
+            <a href="account.html#addresses" class="dropdown-item !justify-start !gap-3 !px-3.5 !py-2.5 text-[16px]">
+              <svg class="h-5 w-5 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-map-pin"/></svg>
+              Адреса доставки
+            </a>
+            <a href="account.html" class="dropdown-item !justify-start !gap-3 !px-3.5 !py-2.5 text-[16px]">
+              <svg class="h-5 w-5 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-sliders-horizontal"/></svg>
+              Настройки профиля
+            </a>
+            <button type="button" @click="logged ? toggleAuth() : (open = false, $dispatch('open-auth', 'login'))"
+                    class="dropdown-item !justify-start !gap-3 !px-3.5 !py-2.5 mt-1 border-t border-slate-100 text-[16px] !text-sale-600 hover:!bg-sale-50">
+              <svg class="h-5 w-5 shrink-0" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-sign-out"/></svg>
+              <span x-text="logged ? 'Выйти' : 'Войти'"></span>
+            </button>
+          </nav>
+        </div>
+      </div>
+
+      <!-- заказы -->
+      <a href="orders.html" @mouseenter="scheduleClose()"
+         class="group relative flex min-w-[56px] flex-col items-center gap-1 rounded-2xl p-2 text-ink transition-colors duration-200 min-[380px]:min-w-[64px] min-[380px]:p-3 sm:min-w-[80px]"
+           :class="scrolled ? 'hover:bg-[#f1f5f9]' : 'hover:bg-white'">
+        <span class="relative grid h-10 w-10 place-items-center">
+          <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-file-text"/></svg>
+          <span x-show="$store.orders.activeCount > 0" x-cloak
+                class="absolute -right-2.5 -top-2.5 grid h-5 min-w-[20px] place-items-center rounded-full bg-[#31aaff] px-1 text-[12px] font-bold leading-3 text-white"
+                x-text="$store.orders.activeCount"></span>
+        </span>
+        <span class="hidden whitespace-nowrap text-[12px] font-medium leading-4 text-[#0a1a33] min-[380px]:block">Заказы</span>
+      </a>
+
+      <!-- корзина + выпадающее меню -->
+      <div class="relative" @mouseenter="show()">
+        <a href="cart.html"
+           class="group relative flex min-w-[56px] flex-col items-center gap-1 rounded-2xl p-2 text-ink transition-colors duration-200 min-[380px]:min-w-[64px] min-[380px]:p-3 sm:min-w-[80px]"
+           :class="scrolled ? 'hover:bg-[#f1f5f9]' : 'hover:bg-white'">
+          <span class="relative grid h-10 w-10 place-items-center">
+            <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-shopping-cart-simple"/></svg>
+            <span x-show="$store.cart.count > 0" x-cloak
+                  class="absolute -right-2.5 -top-2.5 grid h-5 min-w-[20px] place-items-center rounded-full bg-[#31aaff] px-1 text-[12px] font-bold leading-3 text-white"
+                  x-text="$store.cart.count"></span>
+          </span>
+          <span class="hidden whitespace-nowrap text-[12px] font-semibold leading-4 text-[#0a1a33] min-[380px]:block"
+                x-text="$store.cart.count > 0 ? $store.cart.totalLabel : 'Корзина'">Корзина</span>
+        </a>
+
+        <div x-show="open && $store.cart.count > 0" x-cloak x-transition.opacity.duration.150ms
+             class="absolute right-0 top-full z-40 mt-2 w-[480px] max-w-[calc(100vw-2rem)] overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lift">
+          <div class="flex items-center justify-between border-b border-slate-100 px-4 py-3">
+            <p class="text-[15px] font-bold">Основные товары <span class="text-ink-mute" x-text="$store.cart.count"></span></p>
+            <button type="button" class="text-[13px] font-medium text-navy-600 hover:underline" @click="$store.cart.clear()">Очистить список</button>
+          </div>
+
+          <div class="max-h-[320px] overflow-y-auto px-4 py-1">
+            <template x-for="line in $store.cart.lines" :key="line.sku">
+              <div class="flex items-center gap-3 border-b border-slate-100 py-3 last:border-0">
+                <img :src="line.product.img" alt="" width="48" height="48" loading="lazy"
+                     class="h-12 w-12 shrink-0 rounded-xl bg-slate-50 object-contain p-0.5">
+                <div class="min-w-0 flex-1">
+                  <p class="text-[16px] font-semibold leading-snug" x-text="line.product.name"></p>
+                  <p class="mt-0.5 text-[12px] text-ink-mute">
+                    <span x-text="line.qty"></span> шт. · <span x-text="line.product.volume"></span>
+                  </p>
+                </div>
+                <p class="shrink-0 text-[16px] font-bold" x-text="fmt(line.total)"></p>
+                <button type="button" class="shrink-0 rounded-lg p-1 text-ink-mute transition hover:bg-sale-50 hover:text-sale-500"
+                        @click="$store.cart.remove(line.sku)" :aria-label="'Удалить: ' + line.product.name">
+                  <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-trash"/></svg>
+                </button>
+              </div>
+            </template>
+          </div>
+
+          <div class="border-t border-slate-100 p-4">
+            <div class="flex items-end justify-between gap-3">
+              <div>
+                <p class="text-[13px] text-ink-mute">Итого:</p>
+                <p class="text-2xl font-bold tracking-[-0.02em]" x-text="$store.cart.totalLabel"></p>
+              </div>
+              <a href="cart.html" class="btn-primary btn-sm">В корзину</a>
+            </div>
+            <p class="mt-2 text-[12px] text-ink-mute" x-show="$store.cart.freeDeliveryLeft > 0">
+              До бесплатной доставки <span class="font-semibold text-ink" x-text="$store.cart.freeDeliveryLeft + ' ₽'"></span>
+            </p>
+            <p class="mt-2 text-[12px] font-semibold text-accent-700" x-show="$store.cart.freeDeliveryLeft === 0" x-cloak>
+              Доставка бесплатная
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- строка 2: разделы -->
+  <div class="hidden lg:block">
+    <div data-nav class="mx-auto flex w-full max-w-[1240px] items-center justify-center gap-1 px-8 pb-1">
+      <a data-nav-item href="index.html#loyalty" class="nav-link">Программа лояльности</a>
+      <a data-nav-item href="index.html#promo" class="nav-link">Акции</a>
+      <a data-nav-item href="index.html#promo" class="nav-link">Автоповтор заказа</a>
+      <a data-nav-item href="index.html#delivery" class="nav-link">Доставка</a>
+      <a data-nav-item href="index.html#delivery" class="nav-link">Оплата</a>
+      <a data-nav-item href="index.html#faq" class="nav-link">Вопросы и ответы</a>
+      <div data-nav-item data-nav-title="Инфо" class="relative shrink-0" x-data="{ open: false }"
+           @mouseenter="open = true" @mouseleave="open = false" @focusin="open = true" @focusout="if (!$el.contains($event.relatedTarget)) open = false" @keydown.escape="open = false">
+          <a href="#" class="nav-link inline-flex items-center gap-1.5" :aria-expanded="open" aria-haspopup="true">
+            Инфо
+            <svg class="h-3.5 w-3.5 shrink-0 text-ink-mute transition" :class="open && 'rotate-180'" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-caret-down"/></svg>
+          </a>
+          <div data-nav-children x-show="open" x-cloak x-transition.opacity.duration.150ms
+               class="dropdown-panel left-0 top-full mt-3 w-[520px] !p-2">
+            <div class="grid grid-cols-2 gap-x-2 gap-y-0.5">
+              <a href="index.html#about" class="dropdown-item !justify-start">Компания</a>
+              <a href="#" class="dropdown-item !justify-start">Контакты</a>
+              <a href="index.html#faq" class="dropdown-item !justify-start">Профилактика</a>
+              <a href="#" class="dropdown-item !justify-start">Новости</a>
+              <a href="#" class="dropdown-item !justify-start">Документы на воду</a>
+              <a href="#" class="dropdown-item !justify-start">Оптовым клиентам</a>
+              <a href="index.html#about" class="dropdown-item !justify-start">Производство</a>
+              <a href="#" class="dropdown-item !justify-start">Правовая информация</a>
+              <a href="#" class="dropdown-item !justify-start">Блог</a>
+              <a href="#" class="dropdown-item !justify-start">Вакансии</a>
+            </div>
+          </div>
+        </div>
+      <div data-nav-more class="relative hidden shrink-0" x-data="{ open: false }"
+           @mouseenter="open = true" @mouseleave="open = false" @focusin="open = true"
+           @focusout="if (!$el.contains($event.relatedTarget)) open = false" @keydown.escape="open = false">
+        <button type="button" :aria-expanded="open" aria-haspopup="true"
+                class="nav-link inline-flex items-center gap-1.5 font-semibold">
+          Ещё
+          <svg class="h-3.5 w-3.5 shrink-0 text-ink-mute transition" :class="open && 'rotate-180'" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-caret-down"/></svg>
+        </button>
+        <div x-show="open" x-cloak x-transition.opacity.duration.150ms
+             class="dropdown-panel right-0 top-full mt-3 w-64">
+          <div data-more-list></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!--ANCHOR_DRAWER-->
+
+<main class="pb-16">
+
+  <nav class="shell flex items-center gap-2 py-4 text-[14px] text-ink-mute" aria-label="Хлебные крошки">
+    <a href="index.html" class="hover:text-navy-700">Главная</a>
+    <span aria-hidden="true">/</span>
+    <span class="font-medium text-ink">Личный кабинет</span>
+  </nav>
+
+  <div class="shell">
+    <h1 class="h-section">Настройки профиля</h1>
+  </div>
+
+  <div class="shell mt-6 grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-[248px_minmax(0,1fr)] lg:gap-6">
+
+    <!-- ---------- sidebar ---------- -->
+    <aside class="lg:sticky lg:top-40 lg:self-start" aria-label="Разделы личного кабинета">
+      <div class="card overflow-hidden p-2">
+        <a href="account.html" aria-current="page" class="dropdown-item dropdown-item-active !justify-start gap-2.5 !py-2.5">
+          <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-user"/></svg>
+          Настройки профиля
+        </a>
+        <a href="orders.html" class="dropdown-item !justify-start gap-2.5 !py-2.5">
+          <svg class="h-4 w-4 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-file-text"/></svg>
+          <span class="flex-1">Заказы</span>
+          <span class="pill bg-navy-500 !px-2 !py-0.5 text-[12px] text-white" x-text="$store.orders.list.length"></span>
+        </a>
+        <a href="#addresses" class="dropdown-item !justify-start gap-2.5 !py-2.5">
+          <svg class="h-4 w-4 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-map-pin"/></svg>
+          Мои адреса
+        </a>
+        <a href="#bonuses" class="dropdown-item !justify-start gap-2.5 !py-2.5">
+          <svg class="h-4 w-4 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-star"/></svg>
+          <span class="flex-1">Бонусы</span>
+          <span class="pill bg-accent-50 !px-2 !py-0.5 text-[12px] text-accent-700" x-text="bonus"></span>
+        </a>
+        <a href="#" class="dropdown-item !justify-start gap-2.5 !py-2.5">
+          <svg class="h-4 w-4 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-ticket"/></svg>
+          Обращения в сервис
+        </a>
+        <a href="#" class="dropdown-item !justify-start gap-2.5 !py-2.5">
+          <svg class="h-4 w-4 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-chat-circle"/></svg>
+          Обратная связь
+        </a>
+        <a href="#" class="dropdown-item !justify-start gap-2.5 !py-2.5">
+          <svg class="h-4 w-4 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-credit-card"/></svg>
+          Способы оплаты
+        </a>
+      </div>
+
+      <div class="card mt-3 p-4">
+        <p class="text-[13px] font-semibold">Нужна помощь?</p>
+        <p class="mt-1 text-[12px] leading-snug text-ink-mute">Перезвоним за 5 минут, ежедневно 8:00–22:30.</p>
+        <button type="button" class="btn-ghost btn-sm mt-3 w-full" @click="$dispatch('open-callback')">Заказать звонок</button>
+      </div>
+    </aside>
+
+    <!-- ---------- content ---------- -->
+    <div class="space-y-4">
+
+      <!-- профиль -->
+      <section class="card p-5 sm:p-6" aria-labelledby="profile-title">
+        <h2 id="profile-title" class="sr-only">Данные профиля</h2>
+
+        <div class="flex items-center gap-4">
+          <span class="grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-2xl ring-1 ring-slate-200">
+            <template x-if="!avatarSrc">
+              <svg viewBox="0 0 48 48" class="h-full w-full" aria-hidden="true"><use href="#nv-drop-face"/></svg>
+            </template>
+            <template x-if="avatarSrc">
+              <img :src="avatarSrc" alt="Аватар профиля" width="64" height="64" class="h-full w-full object-cover">
+            </template>
+          </span>
+          <div class="min-w-0">
+            <p class="text-lg font-bold" x-text="name"></p>
+            <p class="text-[13px] text-ink-mute">Дата регистрации: <span x-text="registered"></span></p>
+          </div>
+          <button type="button" class="btn-ghost btn-sm ml-auto shrink-0" @click="editAvatar = !editAvatar">Сменить фото</button>
+        </div>
+
+        <div x-show="editAvatar" x-cloak x-transition.opacity.duration.150ms class="mt-4 rounded-2xl bg-slate-50 p-4">
+          <p class="text-[13px] font-semibold">Выберите аватар</p>
+
+          <div class="mt-3 flex flex-wrap items-center gap-2.5">
+            <!-- готовые аватары -->
+            <template x-for="a in presetAvatars" :key="a.id">
+              <button type="button" @click="pickAvatar(a.src)"
+                      class="h-14 w-14 overflow-hidden rounded-2xl bg-white transition"
+                      :class="avatar === a.src ? 'ring-2 ring-accent-500 ring-offset-2' : 'ring-1 ring-slate-200 hover:ring-accent-300'"
+                      :aria-label="'Аватар ' + a.label">
+                <img :src="a.src" alt="" width="56" height="56" loading="lazy" class="h-full w-full object-cover">
+              </button>
+            </template>
+
+            <!-- загрузка своего -->
+            <label class="grid h-14 w-14 cursor-pointer place-items-center rounded-2xl border-2 border-dashed bg-white transition hover:border-accent-400 hover:text-accent-600"
+                   :class="isCustomAvatar ? 'border-accent-500 text-accent-600 ring-2 ring-accent-500 ring-offset-2' : 'border-slate-300 text-ink-mute'">
+              <input type="file" accept="image/png,image/jpeg,image/webp" class="sr-only" @change="onAvatarFile($event)">
+              <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-plus"/></svg>
+              <span class="sr-only">Загрузить своё изображение</span>
+            </label>
+          </div>
+
+          <p class="mt-2.5 text-[12px] leading-relaxed text-ink-mute">
+            PNG, JPG или WebP до 5 МБ. Картинка обрезается до квадрата и сжимается до 192 × 192 — в шапке будет лёгкая.
+          </p>
+          <p x-show="avatarError" x-cloak class="mt-1.5 text-[12px] font-medium text-sale-600" x-text="avatarError"></p>
+
+          <button type="button" class="btn-ghost btn-sm mt-3" @click="editAvatar = false">Готово</button>
+        </div>
+
+        <div class="mt-5 grid gap-3 sm:grid-cols-2">
+          <div>
+            <label class="label" for="pf-phone">Телефон</label>
+            <div class="relative">
+              <input id="pf-phone" type="tel" inputmode="tel" autocomplete="tel" class="field !pr-10" x-model="form.phone">
+              <svg x-show="saved.phone" class="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-accent-600" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-check-fat"/></svg>
+            </div>
+          </div>
+          <div>
+            <label class="label" for="pf-email">Электронная почта</label>
+            <div class="relative">
+              <input id="pf-email" type="email" autocomplete="email" class="field !pr-10" x-model="form.email">
+              <svg x-show="saved.email" class="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-accent-600" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-check-fat"/></svg>
+            </div>
+          </div>
+          <div>
+            <label class="label" for="pf-name">Имя</label>
+            <div class="relative">
+              <input id="pf-name" type="text" autocomplete="name" class="field !pr-10" x-model="form.name">
+              <svg x-show="saved.name" class="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-accent-600" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-check-fat"/></svg>
+            </div>
+          </div>
+          <div>
+            <label class="label" for="pf-nick">Никнейм</label>
+            <div class="relative">
+              <input id="pf-nick" type="text" class="field !pr-10" x-model="form.nick">
+              <svg x-show="saved.nick" class="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-accent-600" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-check-fat"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 flex flex-wrap items-center gap-2">
+          <button type="button" class="btn-primary btn-sm" @click="save()" :disabled="!dirty" :class="!dirty && '!bg-slate-200 !text-ink-mute !shadow-none'">
+            Сохранить изменения
+          </button>
+          <button type="button" class="btn-ghost btn-sm" @click="logout()">
+            <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-sign-out"/></svg>
+            Выйти
+          </button>
+          <button type="button" class="btn-ghost btn-sm" @click="pwModal = true">Сменить пароль</button>
+          <button type="button" class="ml-auto text-[13px] font-medium text-sale-600 hover:underline" @click="delModal = true">Удалить профиль</button>
+        </div>
+      </section>
+
+      <!-- расширенная версия -->
+      <section class="card flex flex-wrap items-center gap-4 p-5">
+        <div class="min-w-0 flex-1">
+          <p class="flex items-center gap-1.5 font-bold">
+            Расширенная версия сайта
+            <span class="group relative inline-flex">
+              <button type="button" class="grid h-5 w-5 place-items-center rounded-full border border-slate-300 text-[12px] font-bold text-ink-mute transition hover:border-navy-400 hover:text-navy-600" aria-label="Что такое расширенная версия">?</button>
+              <span class="tooltip-box tooltip-right bottom-full mb-3 w-52">Расширенная версия показывает больше товаров на экране и дополнительные блоки с рекомендациями.</span>
+            </span>
+          </p>
+          <p class="mt-1 text-[13px] text-ink-mute">Больше товаров на экране и подсказки по подбору воды.</p>
+        </div>
+        <button type="button" role="switch" :aria-checked="extended" aria-label="Расширенная версия сайта" @click="extended = !extended"
+                class="relative h-7 w-12 shrink-0 rounded-full transition"
+                :class="extended ? 'bg-accent-500' : 'bg-slate-300'">
+          <span class="absolute top-1 h-5 w-5 rounded-full bg-white shadow transition-all" :class="extended ? 'left-6' : 'left-1'"></span>
+        </button>
+      </section>
+
+      <!-- бонусы -->
+      <section id="bonuses" class="card scroll-mt-40 p-5 sm:p-6" aria-labelledby="bonuses-title">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2 id="bonuses-title" class="text-lg font-bold">Бонусы</h2>
+          <a href="index.html#loyalty" class="text-[13px] font-semibold text-navy-600 hover:underline">Как начисляются →</a>
+        </div>
+        <div class="mt-4 grid gap-3 sm:grid-cols-3">
+          <div class="rounded-2xl bg-gradient-to-br from-navy-700 to-navy-500 p-4 text-white">
+            <p class="text-[12px] uppercase tracking-wider text-sky-100/80">Доступно</p>
+            <p class="mt-1 text-2xl font-bold" x-text="bonus + ' б.'"></p>
+            <p class="mt-1 text-[12px] text-sky-100/80">1 бонус = 1 ₽</p>
+          </div>
+          <div class="rounded-2xl bg-slate-50 p-4">
+            <p class="text-[12px] uppercase tracking-wider text-ink-mute">Начислено за всё время</p>
+            <p class="mt-1 text-2xl font-bold">1 240 б.</p>
+          </div>
+          <div class="rounded-2xl bg-slate-50 p-4">
+            <p class="text-[12px] uppercase tracking-wider text-ink-mute">Сгорят 31 декабря</p>
+            <p class="mt-1 text-2xl font-bold">80 б.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- адреса -->
+      <section id="addresses" class="card scroll-mt-40 p-5 sm:p-6" aria-labelledby="addr-title">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2 id="addr-title" class="text-lg font-bold">Мои адреса</h2>
+          <button type="button" class="btn-ghost btn-sm" @click="addAddress = !addAddress">+ Добавить адрес</button>
+        </div>
+
+        <ul class="mt-4 space-y-2">
+          <template x-for="a in addresses" :key="a.id">
+            <li class="flex items-center gap-3 rounded-2xl bg-slate-50 p-3">
+              <span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-navy-600">
+                <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-map-pin"/></svg>
+              </span>
+              <span class="min-w-0 flex-1">
+                <span class="block truncate text-[16px] font-semibold" x-text="a.title"></span>
+                <span class="block truncate text-[12px] text-ink-mute" x-text="a.full"></span>
+              </span>
+              <button type="button" class="text-[12px] text-ink-mute underline decoration-slate-300 underline-offset-2 hover:text-sale-500" @click="removeAddress(a.id)">удалить</button>
+            </li>
+          </template>
+        </ul>
+
+        <div x-show="addAddress" x-cloak class="mt-3 rounded-2xl border border-navy-200 bg-navy-50/40 p-3.5">
+          <div class="grid gap-2 sm:grid-cols-2">
+            <input type="text" placeholder="Улица и дом" class="field" x-model="draft.street">
+            <div class="grid grid-cols-3 gap-2">
+              <input type="text" placeholder="Подъезд" class="field text-center" x-model="draft.entrance">
+              <input type="text" placeholder="Этаж" class="field text-center" x-model="draft.floor">
+              <input type="text" placeholder="Кв/офис" class="field text-center" x-model="draft.flat">
+            </div>
+          </div>
+          <button type="button" class="btn-primary btn-sm mt-2.5" @click="saveAddress()">Сохранить адрес</button>
+        </div>
+      </section>
+
+      <!-- сессии -->
+      <section class="card p-5 sm:p-6" aria-labelledby="sessions-title">
+        <h2 id="sessions-title" class="text-lg font-bold">Ваши сессии</h2>
+        <div class="mt-3 flex items-center gap-3 rounded-2xl bg-slate-50 p-3">
+          <span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-navy-600">
+            <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-monitor"/></svg>
+          </span>
+          <div class="min-w-0">
+            <p class="text-[13px] font-semibold">Desktop · macOS · Chrome</p>
+            <p class="text-[12px] text-ink-mute">Екатеринбург · <span class="font-semibold text-accent-700">Текущий сеанс</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- способы авторизации -->
+      <section class="card p-5 sm:p-6" aria-labelledby="auth-title">
+        <p class="flex items-center gap-1.5" id="auth-title">
+          <span class="text-lg font-bold">Способы авторизации</span>
+          <span class="group relative inline-flex">
+            <button type="button" class="grid h-5 w-5 place-items-center rounded-full border border-slate-300 text-[12px] font-bold text-ink-mute transition hover:border-navy-400 hover:text-navy-600" aria-label="Зачем привязывать аккаунты">?</button>
+            <span class="tooltip-box tooltip-right bottom-full mb-3 w-52">Привязанные аккаунты позволяют входить в один клик и не помнить пароль.</span>
+          </span>
+        </p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <button type="button" class="chip !px-4 !py-2">
+            <svg class="h-4 w-4 text-[#FC3F1D]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.2 21h2.6l-3.3-9.4c1.5-.7 2.5-2.2 2.5-4 0-2.9-2-4.6-5-4.6H4v18h2.6V3.6h2.2c1.7 0 2.7.8 2.7 2.4 0 1.7-1 2.6-2.8 2.6H7.4l5.8 12.4z"/></svg>
+            Войти с Яндекс ID
+          </button>
+          <button type="button" class="chip !px-4 !py-2">
+            <svg class="h-4 w-4 text-[#07F]" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-map-pin-fill"/></svg>
+            Войти с VK ID
+          </button>
+          <button type="button" class="chip !px-4 !py-2">
+            <svg class="h-4 w-4 text-accent-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 3 6v6c0 5 3.7 9.2 9 10 5.3-.8 9-5 9-10V6l-9-4zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
+            Войти с Сбер ID
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="border-t border-slate-200 py-8">
+  <div class="shell flex flex-col gap-3 text-[13px] text-ink-mute sm:flex-row sm:items-center sm:justify-between">
+    <p>© 2003–2026 ООО «Аква-Сервис» · Екатеринбург, ул. Черняховского, 86, оф. 301</p>
+    <div class="flex flex-wrap gap-4">
+      <a href="index.html" class="hover:text-navy-700">Главная</a>
+      <a href="orders.html" class="hover:text-navy-700">Мои заказы</a>
+      <a href="#" class="hover:text-navy-700">Правовая информация</a>
+    </div>
+  </div>
+</footer>
+
+<!-- модалка смены пароля -->
+<div x-show="pwModal" x-cloak class="fixed inset-0 z-[60] flex items-center justify-center p-4">
+  <div x-show="pwModal" x-transition.opacity class="absolute inset-0 bg-ink/60 backdrop-blur-sm" @click="pwModal = false"></div>
+  <div x-show="pwModal" role="dialog" aria-modal="true" aria-labelledby="pw-title"
+       class="relative w-full max-w-sm rounded-3xl bg-white p-6 shadow-2xl">
+    <h2 id="pw-title" class="text-lg font-bold">Сменить пароль</h2>
+    <div class="mt-4 space-y-3">
+      <div><label class="label" for="pw-old">Текущий пароль</label><input id="pw-old" type="password" class="field"></div>
+      <div><label class="label" for="pw-new">Новый пароль</label><input id="pw-new" type="password" class="field"></div>
+    </div>
+    <div class="mt-5 flex gap-2">
+      <button type="button" class="btn-ghost flex-1" @click="pwModal = false">Отмена</button>
+      <button type="button" class="btn-primary flex-1" @click="pwModal = false">Сохранить</button>
+    </div>
+  </div>
+</div>
+
+<!-- модалка удаления профиля -->
+<div x-show="delModal" x-cloak class="fixed inset-0 z-[60] flex items-center justify-center p-4">
+  <div x-show="delModal" x-transition.opacity class="absolute inset-0 bg-ink/60 backdrop-blur-sm" @click="delModal = false"></div>
+  <div x-show="delModal" role="dialog" aria-modal="true" aria-labelledby="del-title"
+       class="relative w-full max-w-sm rounded-3xl bg-white p-6 shadow-2xl">
+    <h2 id="del-title" class="text-lg font-bold">Удалить профиль?</h2>
+    <p class="mt-2 text-sm leading-relaxed text-ink-soft">История заказов и бонусы будут потеряны. Действие необратимо.</p>
+    <div class="mt-5 flex flex-col gap-2 sm:flex-row-reverse">
+      <button type="button" class="btn !bg-sale-500 !text-white hover:!bg-sale-600" @click="delModal = false">Удалить</button>
+      <button type="button" class="btn-ghost" @click="delModal = false">Отмена</button>
+    </div>
+  </div>
+</div>
+
+<div x-data x-show="$store.cart.toast" x-cloak x-transition.opacity
+     class="pointer-events-none fixed inset-x-0 bottom-8 z-50 flex justify-center px-4">
+  <div class="animate-pop-in rounded-2xl bg-ink px-4 py-3 text-sm font-medium text-white shadow-lift" x-text="$store.cart.toast"></div>
+</div>
+
+<script src="assets/app.js?v=940560bd" defer></script>
+<script>
+  function accountPage() {
+    return {
+      name: 'Анна Ковалёва',
+      registered: '14 марта 2019',
+      bonus: 340,
+      avatar: 'assets/img/avatar-1.webp',
+      avatarError: '',
+      editAvatar: false,
+      presetAvatars: [
+        { id: 'a1', src: 'assets/img/avatar-1.webp', label: 'голубая капелька' },
+        { id: 'a2', src: 'assets/img/avatar-2.webp', label: 'розовая капелька' },
+        { id: 'a3', src: 'assets/img/avatar-3.webp', label: 'синяя капелька' },
+      ],
+      extended: true,
+      pwModal: false,
+      delModal: false,
+      addAddress: false,
+
+      form: { phone: '+7 902 447 47 07', email: 'a.kovaleva@example.ru', name: 'Анна Ковалёва', nick: 'anna_k' },
+      saved: { phone: true, email: true, name: true, nick: true },
+
+      draft: { street: '', entrance: '', floor: '', flat: '' },
+      addresses: [
+        { id: 'a1', title: 'Анри Барбюса, д. 6, кв. 12', full: 'Екатеринбург · подъезд 2, этаж 4' },
+        { id: 'a2', title: 'Ленина, д. 24, офис 301', full: 'Екатеринбург · подъезд 1, этаж 3' },
+      ],
+
+      init() {
+        try {
+          const saved = localStorage.getItem('nv-avatar');
+          /* 'drop' — прежний аватар по умолчанию, из списка он убран */
+          if (saved && saved !== 'drop') {
+            this.avatar = saved;
+          } else if (saved === 'drop') {
+            localStorage.setItem('nv-avatar', this.avatar);
+          }
+        } catch (_) {}
+        window.addEventListener('nv:avatar', (e) => {
+          this.avatar = e.detail;
+        });
+      },
+
+      get avatarSrc() {
+        return this.avatar && this.avatar !== 'drop' ? this.avatar : null;
+      },
+
+      get isCustomAvatar() {
+        return typeof this.avatar === 'string' && this.avatar.startsWith('data:');
+      },
+
+      pickAvatar(src) {
+        this.avatar = src;
+        this.avatarError = '';
+        try {
+          localStorage.setItem('nv-avatar', src);
+        } catch (_) {
+          this.avatarError = 'Не удалось сохранить — возможно, изображение слишком большое';
+          return;
+        }
+        window.dispatchEvent(new CustomEvent('nv:avatar', { detail: src }));
+        Alpine.store('cart').flash('Аватар обновлён');
+        setTimeout(() => (Alpine.store('cart').toast = ''), 2200);
+      },
+
+      /* загрузка своего файла: обрезаем в квадрат и сжимаем до 192×192 */
+      onAvatarFile(e) {
+        const file = e.target.files && e.target.files[0];
+        e.target.value = '';
+        if (!file) return;
+        this.avatarError = '';
+        if (!/^image\//.test(file.type)) {
+          this.avatarError = 'Это не изображение';
+          return;
+        }
+        if (file.size > 5 * 1024 * 1024) {
+          this.avatarError = 'Файл больше 5 МБ';
+          return;
+        }
+        const reader = new FileReader();
+        reader.onload = () => {
+          const img = new Image();
+          img.onload = () => {
+            const size = 192;
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            const side = Math.min(img.naturalWidth, img.naturalHeight);
+            ctx.drawImage(
+              img,
+              (img.naturalWidth - side) / 2,
+              (img.naturalHeight - side) / 2,
+              side,
+              side,
+              0,
+              0,
+              size,
+              size
+            );
+            this.pickAvatar(canvas.toDataURL('image/webp', 0.88));
+          };
+          img.onerror = () => (this.avatarError = 'Не удалось прочитать изображение');
+          img.src = reader.result;
+        };
+        reader.onerror = () => (this.avatarError = 'Не удалось прочитать файл');
+        reader.readAsDataURL(file);
+      },
+
+      get dirty() {
+        return (
+          this.form.phone !== '+7 902 447 47 07' ||
+          this.form.email !== 'a.kovaleva@example.ru' ||
+          this.form.name !== 'Анна Ковалёва' ||
+          this.form.nick !== 'anna_k'
+        );
+      },
+
+      save() {
+        this.saved = { phone: true, email: true, name: true, nick: true };
+        this.name = this.form.name;
+        Alpine.store('cart').flash('Профиль сохранён');
+        setTimeout(() => (Alpine.store('cart').toast = ''), 2400);
+      },
+
+      logout() {
+        try { localStorage.setItem('nv-auth', '0'); } catch (_) {}
+        window.location.href = 'index.html';
+      },
+
+      saveAddress() {
+        if (this.draft.street.trim().length < 4) return;
+        const kind = this.draft.flat ? ', кв/офис ' + this.draft.flat : '';
+        this.addresses.push({
+          id: 'a' + Date.now().toString(36),
+          title: this.draft.street + kind,
+          full: 'Екатеринбург' + (this.draft.entrance ? ' · подъезд ' + this.draft.entrance : '') + (this.draft.floor ? ', этаж ' + this.draft.floor : ''),
+        });
+        this.draft = { street: '', entrance: '', floor: '', flat: '' };
+        this.addAddress = false;
+        Alpine.store('cart').flash('Адрес сохранён');
+        setTimeout(() => (Alpine.store('cart').toast = ''), 2400);
+      },
+
+      removeAddress(id) {
+        this.addresses = this.addresses.filter((a) => a.id !== id);
+      },
+    };
+  }
+</script>
+<script src="assets/alpine.min.js" defer></script>
+
+<!-- ================= MODAL: УДАЛИТЬ ТОВАР ================= -->
+<div x-data="removeConfirm" @keydown.escape.window="close()">
+  <div x-show="open" x-cloak class="fixed inset-0 z-[60] flex items-end justify-center p-0 sm:items-center sm:p-4">
+    <div x-show="open" x-transition.opacity class="absolute inset-0 bg-ink/60 backdrop-blur-sm" @click="close()"></div>
+
+    <div x-show="open" x-transition:enter="transition duration-300 ease-smooth"
+         x-transition:enter-start="opacity-0 translate-y-6 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+         x-transition:leave="transition duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+         role="dialog" aria-modal="true" aria-labelledby="rm-title"
+         class="relative w-full max-w-sm rounded-t-4xl bg-white px-6 pb-6 pt-9 text-center shadow-2xl sm:rounded-3xl">
+
+      <button type="button" @click="close()" aria-label="Закрыть"
+              class="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-xl text-ink-mute transition hover:bg-slate-100 hover:text-ink">
+        <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-x"/></svg>
+      </button>
+
+      <h2 id="rm-title" class="text-xl font-bold">Удалить товар?</h2>
+
+      <p class="mt-3 text-[16px] font-semibold leading-snug text-ink" x-text="productName"></p>
+      <p class="mt-1 text-sm text-ink-soft">Будет удалён из корзины</p>
+
+      <div class="mt-6 flex flex-col justify-center gap-2 sm:flex-row">
+        <button type="button" class="btn-ghost sm:min-w-[130px]" @click="close()">Оставить</button>
+        <button type="button" class="btn !bg-sale-500 !text-white hover:!bg-sale-600 sm:min-w-[130px]" @click="confirm()">Удалить</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ================= COOKIE ================= -->
+<div x-data="cookieBanner" x-show="open" x-cloak role="region" aria-label="Использование cookie"
+     x-transition:enter="transition duration-300 ease-smooth"
+     x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+     class="fixed inset-x-3 bottom-3 z-40 sm:inset-x-auto sm:bottom-5 sm:left-5 sm:max-w-sm">
+  <div class="rounded-3xl border border-slate-200 bg-white/95 p-4 shadow-lift backdrop-blur">
+    <p class="text-[13px] font-semibold">Мы используем cookie</p>
+    <p class="mt-1 text-[12px] leading-relaxed text-ink-soft">
+      Чтобы сайт работал корректно и мы понимали, что улучшить. Продолжая пользоваться сайтом, вы соглашаетесь с
+      <a href="#" class="link-underline">политикой обработки данных</a>.
+    </p>
+    <div class="mt-3 flex flex-wrap gap-2">
+      <button type="button" class="btn-primary btn-sm" @click="accept(true)">Принять все</button>
+      <button type="button" class="btn-ghost btn-sm" @click="accept(false)">Только необходимые</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
