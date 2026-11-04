@@ -775,7 +775,7 @@ document.addEventListener('alpine:init', () => {
 
     init() {
       try {
-        const raw = localStorage.getItem('nv-orders');
+        const raw = localStorage.getItem('nv-orders-v2');
         if (raw) {
           const parsed = JSON.parse(raw);
           if (Array.isArray(parsed) && parsed.length) {
@@ -790,7 +790,7 @@ document.addEventListener('alpine:init', () => {
 
     persist() {
       try {
-        localStorage.setItem('nv-orders', JSON.stringify(this.list));
+        localStorage.setItem('nv-orders-v2', JSON.stringify(this.list));
       } catch (_) {}
     },
 
@@ -997,50 +997,60 @@ window.NV.money = (n) => new Intl.NumberFormat('ru-RU').format(Math.round(n)) + 
 
 /* Демо-история заказов, чтобы раздел «Заказы» не был пустым */
 window.NV.seedOrders = function seedOrders() {
-  const iso = (daysAgo, h = 12) => {
+  const at = (daysAgo, hour = 12) => {
     const d = new Date();
     d.setDate(d.getDate() - daysAgo);
-    d.setHours(h, 20, 0, 0);
-    return d.toISOString();
+    d.setHours(hour, 20, 0, 0);
+    return d;
   };
-  return [
-    {
-      id: '48301',
-      createdAt: iso(1, 18),
-      status: 'active',
-      items: [{ sku: 'w-classic-19', qty: 2 }, { sku: 'pompa', qty: 1 }],
-      address: 'ул. Анри Барбюса, д. 6, кв. 12',
-      slot: 'сегодня, 17:00–19:00',
-      payment: 'card',
-    },
-    {
-      id: '48125',
-      createdAt: iso(9, 10),
-      status: 'done',
-      items: [{ sku: 'w-premium-19', qty: 3 }, { sku: 'w-kids-19', qty: 1 }, { sku: 'bottle-19', qty: 4 }],
-      address: 'ул. Ленина, д. 24, офис 301',
-      slot: '9 октября, 10:00–12:00',
-      payment: 'cash',
-    },
-    {
-      id: '47998',
-      createdAt: iso(23, 15),
-      status: 'done',
-      items: [{ sku: 'w-classic-06', qty: 2 }, { sku: 'coffee', qty: 1 }],
-      address: 'ул. Анри Барбюса, д. 6, кв. 12',
-      slot: '25 сентября, 19:00–21:00',
-      payment: 'card',
-    },
-    {
-      id: '47654',
-      createdAt: iso(41, 9),
-      status: 'cancelled',
-      items: [{ sku: 'w-kids-19', qty: 2 }],
-      address: 'ул. Малышева, д. 51, кв. 204',
-      slot: '7 сентября, 12:00–14:00',
-      payment: 'card',
-    },
+  /* дата доставки выводится из того же смещения, поэтому карточка и createdAt
+     всегда рассказывают одну историю */
+  const slotFor = (daysAgo, time) => {
+    if (daysAgo === 0) return 'сегодня, ' + time;
+    if (daysAgo === 1) return 'вчера, ' + time;
+    return at(daysAgo).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) + ', ' + time;
+  };
+
+  const A1 = 'ул. Анри Барбюса, д. 6, кв. 12';
+  const A2 = 'ул. Ленина, д. 24, офис 301';
+  const A3 = 'ул. Малышева, д. 51, кв. 204';
+
+  /* [id, дней назад, статус, адрес, время, оплата, позиции] — год истории,
+     чтобы в кабинете была осмысленная аналитика, а не две точки на графике */
+  const rows = [
+    ['48301', 1,   'active',    A1, '17:00–19:00', 'card', [['w-classic-19', 2], ['pompa', 1]]],
+    ['48125', 9,   'done',      A2, '10:00–12:00', 'cash', [['w-premium-19', 3], ['w-kids-19', 1], ['bottle-19', 4]]],
+    ['47998', 23,  'done',      A1, '19:00–21:00', 'card', [['w-classic-06', 2], ['coffee', 1]]],
+    ['47654', 41,  'cancelled', A3, '12:00–14:00', 'card', [['w-kids-19', 2]]],
+    ['47512', 47,  'done',      A1, '09:00–11:00', 'card', [['w-classic-19', 3]]],
+    ['47330', 61,  'done',      A1, '18:00–20:00', 'card', [['w-classic-19', 2], ['w-premium-15', 1]]],
+    ['47108', 78,  'done',      A2, '11:00–13:00', 'cash', [['w-premium-19', 2], ['w-classic-5', 2]]],
+    ['46922', 94,  'done',      A1, '15:00–17:00', 'card', [['w-classic-19', 4]]],
+    ['46640', 112, 'done',      A1, '10:00–12:00', 'card', [['w-classic-19', 2], ['tea', 2]]],
+    ['46371', 129, 'done',      A2, '16:00–18:00', 'card', [['w-premium-19', 3]]],
+    ['46095', 147, 'cancelled', A3, '13:00–15:00', 'cash', [['w-kids-19', 1]]],
+    ['45888', 158, 'done',      A1, '09:00–11:00', 'card', [['w-classic-19', 2], ['bottle-19', 2]]],
+    ['45620', 176, 'done',      A1, '17:00–19:00', 'card', [['w-classic-19', 3]]],
+    ['45344', 193, 'done',      A2, '12:00–14:00', 'cash', [['w-premium-19', 2], ['w-kids-5', 1]]],
+    ['45070', 211, 'done',      A1, '18:00–20:00', 'card', [['w-classic-19', 2]]],
+    ['44812', 228, 'done',      A1, '11:00–13:00', 'card', [['w-classic-19', 4], ['pompa', 1]]],
+    ['44510', 246, 'done',      A1, '14:00–16:00', 'cash', [['w-classic-19', 2], ['coffee', 1]]],
+    ['44250', 262, 'done',      A1, '10:00–12:00', 'card', [['w-classic-19', 3]]],
+    ['43980', 279, 'done',      A2, '17:00–19:00', 'card', [['w-premium-19', 2], ['w-kids-15', 1]]],
+    ['43720', 298, 'cancelled', A3, '11:00–13:00', 'cash', [['w-kids-19', 2]]],
+    ['43440', 317, 'done',      A1, '18:00–20:00', 'card', [['w-classic-19', 2], ['bottle-19', 2]]],
+    ['43150', 338, 'done',      A1, '09:00–11:00', 'card', [['w-classic-19', 4]]],
   ];
+
+  return rows.map(([id, days, status, address, time, payment, items]) => ({
+    id,
+    createdAt: at(days, 10 + (days % 8)).toISOString(),
+    status,
+    items: items.map(([sku, qty]) => ({ sku, qty })),
+    address,
+    slot: slotFor(days, time),
+    payment,
+  }));
 };
 
 /* ---------------------------------------------------------------
