@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/img/triple-bottles-720.webp"
         imagesrcset="assets/img/triple-bottles-360.webp 360w, assets/img/triple-bottles-720.webp 720w"
         imagesizes="(min-width: 1024px) 500px, 90vw">
-<link rel="stylesheet" href="assets/app.css?v=cf7c42a2">
+<link rel="stylesheet" href="assets/app.css?v=d9c227c0">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -647,16 +647,16 @@
           <!-- один кадр: листание происходит внутри него.
                На десктопе кадр растягивается на всю высоту колонки, чтобы его
                низ совпадал с низом карточки заказа (как в макете). -->
-          <div class="slider-viewport relative h-[452px] overflow-hidden rounded-[40px] sm:h-[480px] lg:h-auto lg:min-h-[500px] lg:flex-1"
+          <div class="slider-viewport relative h-[420px] overflow-hidden rounded-[40px] sm:h-[480px] lg:h-auto lg:min-h-[500px] lg:flex-1"
                :class="dragging && 'is-dragging'"
                @pointerdown="onDown($event)" @pointermove="onMove($event)" @pointerup="onUp()" @pointercancel="onUp()" @pointerleave="startX !== null && onUp()">
 
               <!-- слайд 1: автоповтор заказа (макет Paper) -->
               <div class="slider-slide absolute inset-0" :inert="index !== 0" :style="slideStyle(0)">
                 <div class="relative h-full overflow-hidden bg-[#1b93eb]">
-                  <div class="slider-layer absolute inset-0" :style="layerStyle(0)">
+                  <div class="hero-slide-auto slider-layer absolute inset-0" :style="layerStyle(0)">
                     <div class="absolute inset-0" style="background-image: linear-gradient(135deg in oklab, #0d6cb4 0%, #1b93eb 50%, #70b0e0 100%)"></div>
-                    <div class="absolute inset-0 opacity-[0.12]" style="background-image: radial-gradient(circle in oklab, #ffffff 51.12%, #ffffff 0.07%, rgba(255,255,255,0) 0%)"></div>
+                    <div class="absolute inset-0 hidden opacity-[0.12] sm:block" style="background-image: radial-gradient(circle in oklab, #ffffff 51.12%, #ffffff 0.07%, rgba(255,255,255,0) 0%)"></div>
                     <div class="hero-photo absolute -inset-y-16 left-0 w-[990px]"
                          style="background-image: url('assets/img/hero-autorepeat.webp'); background-size: cover; background-position: 50% 50%"></div>
                     <!-- на телефоне стрелка поднимается из нижнего угла: прикрываем ряд с кнопками -->
@@ -698,6 +698,10 @@
               <div class="slider-slide absolute inset-0" :inert="index !== 1" :style="slideStyle(1)">
                 <div class="relative h-full overflow-hidden bg-[#0b304a]">
                   <div class="slider-layer absolute inset-0" :style="layerStyle(1)">
+                    <!-- на телефоне вихрь раньше пропадал: композиция в канве 680×532
+                         обрезалась, поэтому здесь он отдельным слоем на весь кадр -->
+                    <div class="pointer-events-none absolute inset-0 opacity-40 mix-blend-luminosity sm:hidden"
+                         style="background-image: url('assets/img/hero-light-swirl.webp'); background-size: cover; background-position: 50% 50%"></div>
                     <div class="absolute inset-0" style="background-image: linear-gradient(101.47deg in oklab, #ffffff -9.5%, #31aaff 113.5%)"></div>
                     <div class="absolute -left-[119px] top-0 h-full w-[1181px] opacity-50" style="background-image: linear-gradient(187.04deg in oklab, #ffffff 6.25%, #32aaff 91.36%)"></div>
                     <div class="hero-canvas hero-canvas-gift absolute right-0 bottom-0 top-auto h-[532px] w-[680px] sm:bottom-auto sm:top-0"
