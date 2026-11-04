@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Вода «Новокурьинская»">
+  <rect width="64" height="64" rx="15" fill="#F0F5FD"/>
+  <path d="M32 8.6c8.6 9.6 15.2 18.5 15.2 26.3 0 8.9-6.8 15.6-15.2 15.6s-15.2-6.7-15.2-15.6C16.8 27.1 23.4 18.2 32 8.6Z" fill="#003998"/>
+  <path d="M24.9 35.4a7 7 0 0 0 7 7" fill="none" stroke="#F0F5FD" stroke-width="2.8" stroke-linecap="round"/>
+</svg>
