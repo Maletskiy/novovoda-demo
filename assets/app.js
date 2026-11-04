@@ -90,15 +90,53 @@ document.addEventListener('alpine:init', () => {
     },
   }));
 
-  /* ---------- город: нижняя шторка на телефоне ----------
-     Выезжает снизу, закрывается крестиком, тапом по фону или свайпом вниз. */
+  /* ---------- нижние шторки: общее поведение ----------
+     Выезжают снизу, закрываются крестиком, тапом по фону и свайпом вниз. */
+  function sheetBase() {
+    return {
+      open: false,
+      dragging: false,
+      dragY: 0,
+      startY: null,
+
+      show() {
+        this.dragY = 0;
+        this.open = true;
+        document.documentElement.style.overflow = 'hidden';
+      },
+      close() {
+        this.open = false;
+        this.dragY = 0;
+        this.dragging = false;
+        document.documentElement.style.overflow = '';
+      },
+      start(e) {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        this.dragging = true;
+        this.startY = e.clientY;
+        this.dragY = 0;
+      },
+      move(e) {
+        if (!this.dragging || this.startY === null) return;
+        this.dragY = Math.max(0, Math.round(e.clientY - this.startY));
+      },
+      end() {
+        if (!this.dragging) return;
+        const dy = this.dragY;
+        this.dragging = false;
+        this.startY = null;
+        /* короткий свайп возвращает шторку на место, длинный — закрывает */
+        if (dy > 110) this.close();
+        else this.dragY = 0;
+      },
+    };
+  }
+
+  /* город: список из NV.CITIES, выбор сохраняется и рассылается событием */
   Alpine.data('citySheet', () => ({
-    open: false,
+    ...sheetBase(),
     city: 'Екатеринбург',
     cities: window.NV.CITIES,
-    dragging: false,
-    dragY: 0,
-    startY: null,
 
     init() {
       try {
@@ -110,17 +148,6 @@ document.addEventListener('alpine:init', () => {
       });
     },
 
-    show() {
-      this.dragY = 0;
-      this.open = true;
-      document.documentElement.style.overflow = 'hidden';
-    },
-    close() {
-      this.open = false;
-      this.dragY = 0;
-      this.dragging = false;
-      document.documentElement.style.overflow = '';
-    },
     pick(c) {
       this.city = c;
       try {
@@ -129,27 +156,10 @@ document.addEventListener('alpine:init', () => {
       window.dispatchEvent(new CustomEvent('nv:city', { detail: c }));
       this.close();
     },
-
-    start(e) {
-      if (e.pointerType === 'mouse' && e.button !== 0) return;
-      this.dragging = true;
-      this.startY = e.clientY;
-      this.dragY = 0;
-    },
-    move(e) {
-      if (!this.dragging || this.startY === null) return;
-      this.dragY = Math.max(0, Math.round(e.clientY - this.startY));
-    },
-    end() {
-      if (!this.dragging) return;
-      const dy = this.dragY;
-      this.dragging = false;
-      this.startY = null;
-      /* короткий свайп возвращает шторку на место, длинный — закрывает */
-      if (dy > 110) this.close();
-      else this.dragY = 0;
-    },
   }));
+
+  /* каталог: шторка с тем же меню, что в мега-меню на десктопе */
+  Alpine.data('catalogSheet', () => ({ ...sheetBase() }));
 
   /* ---------- единый источник телефона для шапки ---------- */
   Alpine.data('cityPhone', () => ({

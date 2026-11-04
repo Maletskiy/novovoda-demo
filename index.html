@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/img/triple-bottles-720.webp"
         imagesrcset="assets/img/triple-bottles-360.webp 360w, assets/img/triple-bottles-720.webp 720w"
         imagesizes="(min-width: 1024px) 500px, 90vw">
-<link rel="stylesheet" href="assets/app.css?v=cd39a375">
+<link rel="stylesheet" href="assets/app.css?v=7dd2f837">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -595,48 +595,32 @@
 <!-- ================= MOBILE MENU DRAWER ================= -->
 <div x-data="{ open: false }" @open-menu.window="open = true"
      @keydown.escape.window="open = false">
-  <div x-show="open" x-cloak class="fixed inset-0 z-50 lg:hidden">
+  <div x-show="open" x-cloak class="fixed inset-0 z-[57] lg:hidden">
     <div x-show="open" x-transition.opacity class="absolute inset-0 bg-ink/50" @click="open = false"></div>
     <div x-show="open"
          x-transition:enter="transition duration-300 ease-smooth" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
          x-transition:leave="transition duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full"
-         class="absolute inset-y-0 left-0 flex w-[86%] max-w-sm flex-col bg-white shadow-2xl">
-      <div class="flex items-center justify-between border-b border-slate-200 px-4 py-3.5">
-        <span class="font-bold">Меню</span>
-        <button type="button" class="btn-icon !border-0 !bg-transparent" @click="open = false" aria-label="Закрыть меню">
-          <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-x"/></svg>
+         class="absolute inset-0 flex flex-col bg-white shadow-2xl">
+
+      <div class="flex items-center justify-between gap-3 border-b border-slate-200 px-4 py-2.5">
+        <a href="index.html" class="flex items-center" aria-label="Новокурьинская — на главную" @click="open = false">
+          <img src="assets/img/logo-novovoda.svg" alt="Вода «Новокурьинская»" width="111" height="72"
+               class="h-9 w-auto" fetchpriority="high">
+        </a>
+        <button type="button" @click="open = false" aria-label="Закрыть меню"
+                class="grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-white text-ink-mute transition hover:bg-slate-50 hover:text-ink">
+          <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-x"/></svg>
         </button>
       </div>
-      <nav class="flex-1 overflow-y-auto px-2 py-3" aria-label="Мобильная навигация">
-        <a href="tel:+73432707777" class="mx-2 mb-3 flex items-center gap-3 rounded-2xl bg-navy-50 px-4 py-3.5">
-          <span class="grid h-10 w-10 place-items-center rounded-xl bg-white text-navy-600">
-            <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-phone"/></svg>
-          </span>
-          <span class="leading-tight">
-            <span class="block text-[12px] uppercase tracking-wider text-ink-mute">Заказ по телефону</span>
-            <span class="block font-bold">+7 (343) 270-77-77</span>
-          </span>
-        </a>
-        <div class="mx-2 mb-3 rounded-2xl border border-slate-200 px-3 py-2.5" x-data="cityPhone">
-          <p class="text-[12px] font-semibold uppercase tracking-wider text-ink-mute">Город доставки</p>
-          <button type="button" @click="open = false; $dispatch('open-city-sheet')"
-                  class="mt-1 flex w-full items-center justify-between gap-2 text-left">
-            <span class="flex items-center gap-1.5 text-[16px] font-semibold text-ink">
-              <svg class="h-4 w-4 text-navy-500" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-map-pin"/></svg>
-              <span x-text="city"></span>
-            </span>
-            <svg class="h-4 w-4 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-caret-down"/></svg>
-          </button>
-        </div>
-        <button type="button" @click="open = false; $dispatch('open-callback')" class="flex w-full items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium hover:bg-slate-50">Заказать звонок <span class="text-ink-mute">→</span></button>
-        <a href="catalog.html" class="flex items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium hover:bg-slate-50">Каталог воды <span class="text-ink-mute">→</span></a>
-        <a href="catalog.html#coolers" class="flex items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium hover:bg-slate-50">Кулеры и помпы <span class="text-ink-mute">→</span></a>
-        <a href="catalog.html#goods" class="flex items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium hover:bg-slate-50">Кофе, чай, сладости <span class="text-ink-mute">→</span></a>
-        <a href="#delivery" class="flex items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium hover:bg-slate-50">Доставка и оплата <span class="text-ink-mute">→</span></a>
-        <a href="#loyalty" class="flex items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium hover:bg-slate-50">Программа лояльности <span class="text-ink-mute">→</span></a>
-        <a href="cart.html" class="flex items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium hover:bg-slate-50">Корзина <span class="rounded-full bg-navy-50 px-2 py-0.5 text-xs font-bold text-navy-700" x-text="$store.cart.count"></span></a>
+
+      <nav class="flex-1 overflow-y-auto px-2 py-2 scroll-x" aria-label="Мобильная навигация">
+        <a href="catalog.html" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Каталог воды <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="catalog.html#coolers" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Кулеры и помпы <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="catalog.html#goods" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Кофе, чай, сладости <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="index.html#delivery" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Доставка и оплата <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="index.html#loyalty" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Программа лояльности <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="index.html#reviews" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Отзывы <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="index.html#faq" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Вопросы и ответы <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a>
+        <p class="mt-2 px-4 pb-1 pt-3 text-[12px] font-semibold uppercase tracking-[0.14em] text-ink-mute">Инфо</p>
+        <a href="index.html#about" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Компания <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="#" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Контакты <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="index.html#faq" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Профилактика <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="#" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Новости <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="#" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Документы на воду <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="#" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Оптовым клиентам <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="index.html#about" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Производство <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="#" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Правовая информация <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="#" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Блог <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a><a href="#" class="flex w-full items-center justify-between gap-2 rounded-xl px-4 py-3 text-[16px] font-medium text-ink transition hover:bg-slate-50">Вакансии <svg class="h-4 w-4 shrink-0 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-arrow-right"/></svg></a>
       </nav>
-      <div class="border-t border-slate-200 p-4">
+
+      <div class="space-y-2 border-t border-slate-200 p-4">
+        <button type="button" @click="open = false; $dispatch('open-callback')" class="btn-ghost w-full">Заказать звонок</button>
         <a href="#order" class="btn-primary w-full" @click="open = false">Заказать воду</a>
       </div>
     </div>
@@ -1544,7 +1528,7 @@
   </div>
 </div>
 
-<script src="assets/app.js?v=90a81216" defer></script>
+<script src="assets/app.js?v=76948e75" defer></script>
 <script src="assets/alpine.min.js" defer></script>
 
 <!-- ================= MODAL: УДАЛИТЬ ТОВАР ================= -->
@@ -1733,10 +1717,10 @@
 <nav x-data aria-label="Основная навигация"
      class="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-[12px] lg:hidden">
   <div class="mx-auto flex w-full max-w-[560px] items-stretch">
-    <a href="catalog.html" class="tabbar-item text-ink-mute hover:text-navy-700" >
+    <button type="button" class="tabbar-item text-ink-mute hover:text-navy-700"  @click="$dispatch('open-catalog')">
       <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-squares-four"/></svg>
       <span>Каталог</span>
-    </a>
+    </button>
     <a href="orders.html" class="tabbar-item text-ink-mute hover:text-navy-700" >
       <span class="relative">
         <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-file-text"/></svg>
@@ -1770,14 +1754,14 @@
          x-transition:leave-start="translate-y-0" x-transition:leave-end="translate-y-full"
          role="dialog" aria-modal="true" aria-labelledby="city-sheet-title"
          class="sheet-panel absolute inset-x-0 bottom-0 max-h-[88vh] rounded-t-4xl bg-white pb-[env(safe-area-inset-bottom)] shadow-2xl"
-         :style="dragging || dragY ? `transform: translateY(${dragY}px)` : ''"
+         :style="dragging || dragY ? `transform: translateY(${{dragY}}px)` : ''"
          @pointerdown="start($event)" @pointermove="move($event)" @pointerup="end($event)" @pointercancel="end($event)">
 
       <div class="relative flex items-center justify-center pb-1 pt-3">
         <span class="h-1.5 w-12 rounded-full bg-slate-200"></span>
         <button type="button" @click="close()" aria-label="Закрыть"
-                class="absolute right-2 top-1.5 grid h-10 w-10 place-items-center rounded-xl text-ink-mute transition hover:bg-slate-100 hover:text-ink">
-          <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-x"/></svg>
+                class="absolute right-3 top-2 grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-white text-ink-mute transition hover:bg-slate-50 hover:text-ink">
+          <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-x"/></svg>
         </button>
       </div>
 
@@ -1798,6 +1782,104 @@
     </div>
   </div>
 </div>
+
+
+<!-- ================= КАТАЛОГ: НИЖНЯЯ ШТОРКА (телефон) ================= -->
+<div x-data="catalogSheet" @open-catalog.window="show()" @keydown.escape.window="close()">
+  <div x-show="open" x-cloak class="fixed inset-0 z-[60] lg:hidden">
+    <div x-show="open" x-transition.opacity.duration.200ms
+         class="absolute inset-0 bg-ink/55 backdrop-blur-sm" @click="close()"></div>
+
+    <div x-show="open"
+         x-transition:enter="transition duration-300 ease-smooth"
+         x-transition:enter-start="translate-y-full" x-transition:enter-end="translate-y-0"
+         x-transition:leave="transition duration-200 ease-smooth"
+         x-transition:leave-start="translate-y-0" x-transition:leave-end="translate-y-full"
+         role="dialog" aria-modal="true" aria-labelledby="catalog-sheet-title"
+         class="sheet-panel absolute inset-x-0 bottom-0 max-h-[92vh] rounded-t-4xl bg-white pb-[env(safe-area-inset-bottom)] shadow-2xl"
+         :style="dragging || dragY ? `transform: translateY(${dragY}px)` : ''"
+         @pointerdown="start($event)" @pointermove="move($event)" @pointerup="end($event)" @pointercancel="end($event)">
+
+      <div class="relative flex items-center justify-center pb-1 pt-3">
+        <span class="h-1.5 w-12 rounded-full bg-slate-200"></span>
+        <button type="button" @click="close()" aria-label="Закрыть"
+                class="absolute right-3 top-2 grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-white text-ink-mute transition hover:bg-slate-50 hover:text-ink">
+          <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-x"/></svg>
+        </button>
+      </div>
+
+      <div class="px-5 pb-2 pt-1">
+        <h2 id="catalog-sheet-title" class="text-lg font-bold">Каталог</h2>
+        <p class="mt-1 text-[13px] leading-snug text-ink-mute">Вода, кулеры, помпы и всё к чаю</p>
+      </div>
+
+      <div class="max-h-[62vh] overflow-y-auto px-3 pb-2 scroll-x">
+        <div class="grid grid-cols-2 gap-x-1 gap-y-0.5" @click="close()">
+          <a href="catalog.html" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-drop"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Вода</span>
+            </a>
+            <a href="catalog.html" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-gift"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Комбо-наборы</span>
+            </a>
+            <a href="catalog.html#goods" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-coffee"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Кофе и чай</span>
+            </a>
+            <a href="catalog.html#goods" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-cookie"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Сладости</span>
+            </a>
+            <a href="catalog.html#goods" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-fork-knife"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Одноразовая посуда</span>
+            </a>
+            <a href="catalog.html#coolers" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-cylinder"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Кулеры и помпы</span>
+            </a>
+            <a href="index.html#faq" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-shield-check"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Профилактика</span>
+            </a>
+            <a href="index.html#faq" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-wrench"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Ремонт</span>
+            </a>
+            <a href="catalog.html" class="group flex items-center gap-3 rounded-2xl p-2.5 transition hover:bg-navy-50">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-accent-500 transition group-hover:border-accent-200 group-hover:text-accent-600">
+                <svg class="h-5 w-5" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><use href="#ph-beer-bottle"/></svg>
+              </span>
+              <span class="text-[14px] font-semibold leading-tight text-ink transition group-hover:text-navy-700">Тара</span>
+            </a>
+        </div>
+      </div>
+
+      <div class="mx-3 mb-3 flex items-center justify-between gap-3 rounded-2xl bg-deep-50 px-4 py-3">
+        <p class="text-[13px] font-semibold leading-snug text-deep-700">Не знаете, что выбрать?<br>Подберём за 5 минут</p>
+        <button type="button" @click="close(); $dispatch('open-callback')" class="btn-deep btn-sm shrink-0">Заказать звонок</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 </body>
 </html>
