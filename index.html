@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/img/triple-bottles-720.webp"
         imagesrcset="assets/img/triple-bottles-360.webp 360w, assets/img/triple-bottles-720.webp 720w"
         imagesizes="(min-width: 1024px) 500px, 90vw">
-<link rel="stylesheet" href="assets/app.css?v=f4b08663">
+<link rel="stylesheet" href="assets/app.css?v=083b35ea">
 <link rel="icon" href="assets/img/logo-novovoda.svg">
 
 <!-- Structured data: LocalBusiness + FAQ + Breadcrumbs -->
@@ -237,30 +237,46 @@
 
 
 <!-- ================= MOBILE STICKY BAR ================= -->
-<div role="region" aria-label="Быстрое оформление" data-draft class="hidden fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 px-3 pb-[max(0.6rem,env(safe-area-inset-bottom))] pt-2.5 backdrop-blur lg:hidden">
-  <div class="flex items-center gap-2">
-    <a href="tel:+73432707777" class="btn-ghost flex-1 !rounded-2xl !py-3">
-      <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-phone"/></svg>
-      Позвонить
-    </a>
-    <a href="#order" class="btn-primary flex-1 !rounded-2xl !py-3">Заказать воду</a>
-  </div>
-</div>
-
 <!-- ================= TOP BAR ================= -->
 <!-- ================= HEADER ================= -->
 <header x-data="headerScroll" class="sticky top-0 z-30 border-b transition-colors duration-300"
         :class="scrolled ? 'is-pinned border-slate-200 bg-white/95 backdrop-blur-[12px]' : 'border-transparent bg-transparent'">
-  <!-- строка 1 -->
-  <div class="mx-auto flex w-full max-w-[1200px] items-center gap-5 px-4 py-4 lg:px-0">
 
+  <!-- ===== телефон: город и телефон на виду, действия — в нижнем таббаре ===== -->
+  <div x-data="cityPhone" class="lg:hidden">
+    <div class="mx-auto flex w-full max-w-[1200px] items-center gap-2 px-4 pb-2 pt-2.5">
+      <button type="button" class="btn-icon -ml-1 shrink-0" @click="$dispatch('open-menu')" aria-label="Открыть меню">
+        <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-list"/></svg>
+      </button>
+
+      <a href="index.html" class="mx-auto flex shrink-0 items-center" aria-label="Новокурьинская — на главную">
+        <img src="assets/img/logo-novovoda.svg" alt="Вода «Новокурьинская»" width="111" height="72"
+             class="h-9 w-auto" fetchpriority="high">
+      </a>
+
+      <a href="#order" class="btn-primary btn-sm shrink-0 !rounded-xl !px-3 !py-2 !text-[13px]">Заказать воду</a>
+    </div>
+
+    <div class="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-3 px-4 pb-2.5">
+      <button type="button" @click="$dispatch('open-city-sheet')"
+              class="inline-flex min-w-0 items-center gap-1.5 text-[14px] font-semibold uppercase tracking-[0.7px] text-[#0a1a33]/75 transition hover:text-[#1b93eb]"
+              aria-label="Выбрать город доставки">
+        <svg class="h-4 w-4 shrink-0 text-[#1b93eb]" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-map-pin"/></svg>
+        <span class="truncate" x-text="city">Екатеринбург</span>
+        <svg class="h-3.5 w-3.5 shrink-0" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-caret-down"/></svg>
+      </button>
+
+      <a :href="'tel:' + phone.raw" :aria-label="'Позвонить: ' + phone.pretty"
+         class="shrink-0 whitespace-nowrap text-[15px] font-semibold text-[#071621] transition hover:text-[#1b93eb]"
+         x-text="phone.pretty">+7 (343) 270-77-77</a>
+    </div>
+  </div>
+
+  <!-- ===== десктоп ===== -->
+  <div class="mx-auto hidden w-full max-w-[1200px] items-center gap-5 py-4 lg:flex">
     <div class="flex min-w-0 flex-1 items-center gap-6">
       <div class="flex shrink-0 items-center gap-4">
-        <button type="button" class="btn-icon -ml-1 lg:hidden" @click="$dispatch('open-menu')" aria-label="Открыть меню">
-          <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-list"/></svg>
-        </button>
-
-        <div class="hidden lg:block"><div class="relative" x-data="{ mega: false, t: null }"
+        <div class="relative" x-data="{ mega: false, t: null }"
              @mouseenter="clearTimeout(t); mega = true" @mouseleave="t = setTimeout(() => mega = false, 180)"
              @focusin="mega = true" @focusout="if (!$el.contains($event.relatedTarget)) mega = false"
              @keydown.escape="mega = false">
@@ -332,21 +348,16 @@
               <button type="button" @click="$dispatch('open-callback')" class="btn-deep btn-sm shrink-0">Заказать звонок</button>
             </div>
           </div>
-        </div></div>
-
-        <a href="index.html" class="flex shrink-0 items-center sm:hidden" aria-label="Новокурьинская — на главную">
-          <img src="assets/img/logo-novovoda.svg" alt="Вода «Новокурьинская»" width="111" height="72"
-               class="h-9 w-auto" fetchpriority="high">
-        </a>
+        </div>
 
         <button type="button" @click="$dispatch('open-callback')"
-                class="hidden shrink-0 place-items-center rounded-2xl bg-[#31aaff] p-[18px] text-white transition hover:bg-[#1b93eb] lg:grid"
+                class="grid shrink-0 place-items-center rounded-2xl bg-[#31aaff] p-[18px] text-white transition hover:bg-[#1b93eb]"
                 aria-label="Заказать обратный звонок">
           <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-phone"/></svg>
         </button>
       </div>
 
-      <div class="hidden min-w-0 flex-col justify-center gap-1 md:flex" x-data="cityPhone">
+      <div class="flex min-w-0 flex-col justify-center gap-1" x-data="cityPhone">
         <div x-data="cityPicker" class="relative">
           <button type="button" @click="open = !open" @click.outside="open = false" :aria-expanded="open"
                   class="flex items-center gap-2 rounded-lg text-[14px] font-semibold uppercase tracking-[0.7px] text-[#0a1a33]/70 transition hover:text-[#1b93eb]">
@@ -371,9 +382,9 @@
       </div>
     </div>
 
-    <a href="index.html" class="hidden shrink-0 items-center justify-center sm:flex" aria-label="Новокурьинская — на главную">
+    <a href="index.html" class="flex shrink-0 items-center justify-center" aria-label="Новокурьинская — на главную">
       <img src="assets/img/logo-novovoda.svg" alt="Вода «Новокурьинская»" width="111" height="72"
-           class="h-12 w-auto sm:h-[60px] lg:h-[72px]" fetchpriority="high">
+           class="h-[60px] w-auto lg:h-[72px]" fetchpriority="high">
     </a>
 
     <div class="flex min-w-0 flex-1 items-center justify-end">
@@ -604,26 +615,16 @@
             <span class="block font-bold">+7 (343) 270-77-77</span>
           </span>
         </a>
-        <div class="mx-2 mb-3 rounded-2xl border border-slate-200 px-3 py-2.5" x-data="cityPicker">
+        <div class="mx-2 mb-3 rounded-2xl border border-slate-200 px-3 py-2.5" x-data="cityPhone">
           <p class="text-[12px] font-semibold uppercase tracking-wider text-ink-mute">Город доставки</p>
-          <div class="relative mt-1">
-            <button type="button" @click="open = !open" @click.outside="open = false" :aria-expanded="open"
-                    class="flex w-full items-center justify-between gap-2 text-left">
-              <span class="flex items-center gap-1.5 text-[15px] text-[16px] font-semibold text-ink">
-                <svg class="h-4 w-4 text-navy-500" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-map-pin"/></svg>
-                <span x-text="city"></span>
-              </span>
-              <svg class="h-4 w-4 text-ink-mute transition" :class="open && 'rotate-180'" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-caret-down"/></svg>
-            </button>
-            <div x-show="open" x-cloak x-transition.opacity.duration.150ms class="dropdown-panel left-0 right-0 top-full max-h-64 overflow-y-auto">
-              <template x-for="c in cities" :key="c">
-                <button type="button" @click="pick(c)" class="dropdown-item" :class="city === c && 'dropdown-item-active'">
-                  <span x-text="c"></span>
-                  <svg x-show="city === c" class="h-3.5 w-3.5 shrink-0 text-navy-600" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-check-fat"/></svg>
-                </button>
-              </template>
-            </div>
-          </div>
+          <button type="button" @click="open = false; $dispatch('open-city-sheet')"
+                  class="mt-1 flex w-full items-center justify-between gap-2 text-left">
+            <span class="flex items-center gap-1.5 text-[16px] font-semibold text-ink">
+              <svg class="h-4 w-4 text-navy-500" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-map-pin"/></svg>
+              <span x-text="city"></span>
+            </span>
+            <svg class="h-4 w-4 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-caret-down"/></svg>
+          </button>
         </div>
         <button type="button" @click="open = false; $dispatch('open-callback')" class="flex w-full items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium hover:bg-slate-50">Заказать звонок <span class="text-ink-mute">→</span></button>
         <a href="catalog.html" class="flex items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium hover:bg-slate-50">Каталог воды <span class="text-ink-mute">→</span></a>
@@ -657,7 +658,7 @@
           <!-- один кадр: листание происходит внутри него.
                На десктопе кадр растягивается на всю высоту колонки, чтобы его
                низ совпадал с низом карточки заказа (как в макете). -->
-          <div class="slider-viewport relative h-[480px] overflow-hidden rounded-[40px] lg:h-auto lg:min-h-[500px] lg:flex-1"
+          <div class="slider-viewport relative h-[452px] overflow-hidden rounded-[40px] sm:h-[480px] lg:h-auto lg:min-h-[500px] lg:flex-1"
                :class="dragging && 'is-dragging'"
                @pointerdown="onDown($event)" @pointermove="onMove($event)" @pointerup="onUp()" @pointercancel="onUp()" @pointerleave="startX !== null && onUp()">
 
@@ -667,8 +668,10 @@
                   <div class="slider-layer absolute inset-0" :style="layerStyle(0)">
                     <div class="absolute inset-0" style="background-image: linear-gradient(135deg in oklab, #0d6cb4 0%, #1b93eb 50%, #70b0e0 100%)"></div>
                     <div class="absolute inset-0 opacity-[0.12]" style="background-image: radial-gradient(circle in oklab, #ffffff 51.12%, #ffffff 0.07%, rgba(255,255,255,0) 0%)"></div>
-                    <div class="absolute -inset-y-16 left-0 w-[990px]"
+                    <div class="hero-photo absolute -inset-y-16 left-0 w-[990px]"
                          style="background-image: url('assets/img/hero-autorepeat.webp'); background-size: cover; background-position: 50% 50%"></div>
+                    <!-- на телефоне стрелка поднимается из нижнего угла: прикрываем ряд с кнопками -->
+                    <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0b62a8]/85 to-transparent sm:hidden"></div>
                   </div>
 
                   <div class="slider-text relative flex h-full flex-col justify-start px-6 pt-6 sm:px-10 sm:pt-10" :style="textStyle(0)">
@@ -708,12 +711,13 @@
                   <div class="slider-layer absolute inset-0" :style="layerStyle(1)">
                     <div class="absolute inset-0" style="background-image: linear-gradient(101.47deg in oklab, #ffffff -9.5%, #31aaff 113.5%)"></div>
                     <div class="absolute -left-[119px] top-0 h-full w-[1181px] opacity-50" style="background-image: linear-gradient(187.04deg in oklab, #ffffff 6.25%, #32aaff 91.36%)"></div>
-                    <div class="absolute right-0 top-0 h-[532px] w-[680px] origin-top-right" :style="`transform: scale(${artScale})`">
-                    <div class="absolute hidden left-[-120px] top-[536px] h-[1080px] w-[540px] origin-top-left rotate-[270deg] opacity-50 mix-blend-luminosity sm:block"
+                    <div class="hero-canvas hero-canvas-gift absolute right-0 bottom-0 top-auto h-[532px] w-[680px] sm:bottom-auto sm:top-0"
+                         :style="`--art-scale:${artScaleGift}; --art-x:${artX}px; --art-y:${artY}px`">
+                    <div class="absolute left-[-120px] top-[536px] h-[1080px] w-[540px] origin-top-left rotate-[270deg] opacity-50 mix-blend-luminosity max-sm:hidden"
                          style="background-image: url('assets/img/hero-light-swirl.webp'); background-size: cover; background-position: 50% 50%"></div>
-                    <div class="absolute hidden left-0 top-0 h-[414px] w-[221px] origin-top-left rotate-[332.27deg] sm:block"
+                    <div class="absolute left-0 top-0 h-[414px] w-[221px] origin-top-left rotate-[332.27deg]"
                          style="translate: 323.002px 8.003px; background-image: url('assets/img/water-classic-19.webp'); background-size: cover; background-position: 50% 50%"></div>
-                    <div class="absolute hidden left-0 top-0 h-[414px] w-[221px] origin-top-left rotate-[27.02deg] sm:block"
+                    <div class="absolute left-0 top-0 h-[414px] w-[221px] origin-top-left rotate-[27.02deg]"
                          style="translate: 487px 177px; background-image: url('assets/img/water-classic-19.webp'); background-size: cover; background-position: 50% 50%"></div>
                     </div>
                   </div>
@@ -744,10 +748,11 @@
                   <div class="slider-layer absolute inset-0 bg-[#6f808e]" :style="layerStyle(2)">
                     <div class="absolute inset-0 mix-blend-multiply"
                          style="background-image: url('assets/img/hero-dark-ripple.webp'); background-size: cover; background-position: 50% 50%"></div>
-                    <div class="absolute right-0 top-0 h-[532px] w-[680px] origin-top-right" :style="`transform: scale(${artScale})`">
-                    <div class="absolute hidden left-0 top-0 h-[467px] w-[250px] origin-top-left rotate-[15.41deg] sm:block"
+                    <div class="hero-canvas hero-canvas-kit absolute right-0 bottom-0 top-auto h-[532px] w-[680px] sm:bottom-auto sm:top-0"
+                         :style="`--art-scale:${artScale}; --art-x:${artX}px; --art-y:${artY}px`">
+                    <div class="absolute left-0 top-0 h-[467px] w-[250px] origin-top-left rotate-[15.41deg]"
                          style="translate: 410.244px 185.381px; background-image: url('assets/img/water-classic-19.webp'); background-size: cover; background-position: 50% 50%"></div>
-                    <div class="absolute hidden left-0 top-0 h-[263px] w-[263px] origin-top-left rotate-[15.27deg] sm:block"
+                    <div class="absolute left-0 top-0 h-[263px] w-[263px] origin-top-left rotate-[15.27deg]"
                          style="translate: 451.49px -41.525px; background-image: url('assets/img/hero-pump.webp'); background-size: cover; background-position: 50% 50%"></div>
                     </div>
                   </div>
@@ -1007,7 +1012,7 @@
      часть демонстрации. Полную страницу можно вернуть только вручную —
      убрать class="hidden" у всех элементов с [data-draft]. -->
 <div x-data="draftTeaser">
-  <section id="draft" class="scroll-mt-40 pb-12 pt-2 lg:pb-20">
+  <section id="draft" class="scroll-mt-40 pb-24 pt-2 lg:pb-20">
     <div class="shell">
       <div class="relative overflow-hidden rounded-4xl border border-white bg-gradient-to-br from-[#eef6ff] via-white to-[#f4faff] p-6 shadow-[0_30px_80px_-48px_rgba(10,26,51,.45)] sm:p-10 lg:p-14">
         <div class="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full bg-[#31aaff]/15 blur-3xl"></div>
@@ -1534,7 +1539,7 @@
   </div>
 </div>
 
-<script src="assets/app.js?v=174a7c98" defer></script>
+<script src="assets/app.js?v=82417804" defer></script>
 <script src="assets/alpine.min.js" defer></script>
 
 <!-- ================= MODAL: УДАЛИТЬ ТОВАР ================= -->
@@ -1714,6 +1719,76 @@
           </div>
           <p class="mt-2 text-center text-[12px] text-ink-mute" x-text="'Вход через соцсети доступен после привязки к аккаунту'"></p>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= НИЖНИЙ ТАББАР (телефон) ================= -->
+<nav x-data aria-label="Основная навигация"
+     class="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-[12px] lg:hidden">
+  <div class="mx-auto flex w-full max-w-[560px] items-stretch">
+    <a href="catalog.html" class="tabbar-item text-ink-mute hover:text-navy-700" >
+      <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-squares-four"/></svg>
+      <span>Каталог</span>
+    </a>
+    <a href="orders.html" class="tabbar-item text-ink-mute hover:text-navy-700" >
+      <span class="relative">
+        <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-file-text"/></svg>
+        <span x-show="$store.orders.activeCount > 0" x-cloak class="tabbar-badge" x-text="$store.orders.activeCount"></span>
+      </span>
+      <span>Заказы</span>
+    </a>
+    <a href="cart.html" class="tabbar-item text-ink-mute hover:text-navy-700" >
+      <span class="relative">
+        <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-shopping-cart-simple"/></svg>
+        <span x-show="$store.cart.count > 0" x-cloak class="tabbar-badge" x-text="$store.cart.count"></span>
+      </span>
+      <span>Корзина</span>
+    </a>
+    <a href="account.html" class="tabbar-item text-ink-mute hover:text-navy-700" >
+      <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-user"/></svg>
+      <span>Профиль</span>
+    </a>
+  </div>
+</nav>
+<!-- ================= ГОРОД: НИЖНЯЯ ШТОРКА (телефон) ================= -->
+<div x-data="citySheet" @open-city-sheet.window="show()" @keydown.escape.window="close()">
+  <div x-show="open" x-cloak class="fixed inset-0 z-[60] lg:hidden">
+    <div x-show="open" x-transition.opacity.duration.200ms
+         class="absolute inset-0 bg-ink/55 backdrop-blur-sm" @click="close()"></div>
+
+    <div x-show="open"
+         x-transition:enter="transition duration-300 ease-smooth"
+         x-transition:enter-start="translate-y-full" x-transition:enter-end="translate-y-0"
+         x-transition:leave="transition duration-200 ease-smooth"
+         x-transition:leave-start="translate-y-0" x-transition:leave-end="translate-y-full"
+         role="dialog" aria-modal="true" aria-labelledby="city-sheet-title"
+         class="sheet-panel absolute inset-x-0 bottom-0 max-h-[88vh] rounded-t-4xl bg-white pb-[env(safe-area-inset-bottom)] shadow-2xl"
+         :style="dragging || dragY ? `transform: translateY(${dragY}px)` : ''"
+         @pointerdown="start($event)" @pointermove="move($event)" @pointerup="end($event)" @pointercancel="end($event)">
+
+      <div class="relative flex items-center justify-center pb-1 pt-3">
+        <span class="h-1.5 w-12 rounded-full bg-slate-200"></span>
+        <button type="button" @click="close()" aria-label="Закрыть"
+                class="absolute right-2 top-1.5 grid h-10 w-10 place-items-center rounded-xl text-ink-mute transition hover:bg-slate-100 hover:text-ink">
+          <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-x"/></svg>
+        </button>
+      </div>
+
+      <div class="px-5 pb-3 pt-2">
+        <h2 id="city-sheet-title" class="text-lg font-bold">Город доставки</h2>
+        <p class="mt-1 text-[13px] leading-snug text-ink-mute">Доставляем в 11 городах Свердловской области. Цена и телефон меняются вместе с городом.</p>
+      </div>
+
+      <div class="max-h-[58vh] overflow-y-auto px-3 pb-4 scroll-x">
+        <template x-for="c in cities" :key="c">
+          <button type="button" @click="pick(c)"
+                  class="dropdown-item !py-3 text-[16px]" :class="city === c && 'dropdown-item-active'">
+            <span x-text="c"></span>
+            <svg x-show="city === c" class="h-4 w-4 shrink-0 text-navy-600" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-check-fat"/></svg>
+          </button>
+        </template>
       </div>
     </div>
   </div>

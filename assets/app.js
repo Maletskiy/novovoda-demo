@@ -90,6 +90,67 @@ document.addEventListener('alpine:init', () => {
     },
   }));
 
+  /* ---------- город: нижняя шторка на телефоне ----------
+     Выезжает снизу, закрывается крестиком, тапом по фону или свайпом вниз. */
+  Alpine.data('citySheet', () => ({
+    open: false,
+    city: 'Екатеринбург',
+    cities: window.NV.CITIES,
+    dragging: false,
+    dragY: 0,
+    startY: null,
+
+    init() {
+      try {
+        const saved = localStorage.getItem('nv-city');
+        if (saved) this.city = saved;
+      } catch (_) {}
+      window.addEventListener('nv:city', (e) => {
+        this.city = e.detail;
+      });
+    },
+
+    show() {
+      this.dragY = 0;
+      this.open = true;
+      document.documentElement.style.overflow = 'hidden';
+    },
+    close() {
+      this.open = false;
+      this.dragY = 0;
+      this.dragging = false;
+      document.documentElement.style.overflow = '';
+    },
+    pick(c) {
+      this.city = c;
+      try {
+        localStorage.setItem('nv-city', c);
+      } catch (_) {}
+      window.dispatchEvent(new CustomEvent('nv:city', { detail: c }));
+      this.close();
+    },
+
+    start(e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      this.dragging = true;
+      this.startY = e.clientY;
+      this.dragY = 0;
+    },
+    move(e) {
+      if (!this.dragging || this.startY === null) return;
+      this.dragY = Math.max(0, Math.round(e.clientY - this.startY));
+    },
+    end() {
+      if (!this.dragging) return;
+      const dy = this.dragY;
+      this.dragging = false;
+      this.startY = null;
+      /* короткий свайп возвращает шторку на место, длинный — закрывает */
+      if (dy > 110) this.close();
+      else this.dragY = 0;
+    },
+  }));
+
   /* ---------- единый источник телефона для шапки ---------- */
   Alpine.data('cityPhone', () => ({
     city: 'Екатеринбург',
@@ -291,6 +352,9 @@ document.addEventListener('alpine:init', () => {
     dragging: false,
     width: 680,
     artScale: 1,
+    artScaleGift: 1,
+    artX: 0,
+    artY: 0,
 
     init() {
       /* макет баннеров нарисован в канве 680×532 — на узких экранах
@@ -300,13 +364,25 @@ document.addEventListener('alpine:init', () => {
         if (!el) return;
         const w = el.clientWidth;
         const h = el.clientHeight;
-        /* Макет 680×532. На десктопе кадр бывает выше макета (высоту задаёт
-           правая колонка) — тогда тянем композицию по высоте, иначе фактура
-           на фоне обрывается, не доходя до нижней границы баннера.
-           На узких экранах, наоборот, только уменьшаем. */
-        this.artScale = w >= 680
-          ? Math.max(1, h / 532)
-          : Math.min(1, Math.max(w / 680, h / 532));
+        /* Макет баннеров нарисован в канве 680×532.
+           Десктоп: кадр бывает выше макета (высоту задаёт правая колонка) —
+           тянем композицию по высоте, иначе фактура обрывается.
+           Телефон: композиция ужимается по ширине и уезжает вниз, чтобы
+           бутыли и помпа стояли под текстом, а не поверх него. */
+        if (w < 640) {
+          const s = Math.min(0.62, Math.max(0.42, w / 640));
+          this.artScale = s;
+          /* подарок: две бутыли в кадре шире остальных композиций — ужимаем сильнее */
+          this.artScaleGift = s * 0.8;
+          this.artX = 0;
+          /* сдвиг в пикселях кадра: композиция прижата к нижнему правому углу */
+          this.artY = Math.round(Math.max(0, h - 532 * s) * 0.42);
+        } else {
+          this.artScale = w >= 680 ? Math.max(1, h / 532) : Math.min(1, Math.max(w / 680, h / 532));
+          this.artScaleGift = this.artScale;
+          this.artX = 0;
+          this.artY = 0;
+        }
       };
       fit();
       this.$nextTick(fit);
