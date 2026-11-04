@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/img/triple-bottles-720.webp"
         imagesrcset="assets/img/triple-bottles-360.webp 360w, assets/img/triple-bottles-720.webp 720w"
         imagesizes="(min-width: 1024px) 500px, 90vw">
-<link rel="stylesheet" href="assets/app.css?v=7dd2f837">
+<link rel="stylesheet" href="assets/app.css?v=cf7c42a2">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -246,17 +246,20 @@
 
   <!-- ===== телефон: город и телефон на виду, действия — в нижнем таббаре ===== -->
   <div x-data="cityPhone" class="lg:hidden">
-    <div class="mx-auto flex w-full max-w-[1200px] items-center gap-2 px-4 pb-2 pt-2.5">
+    <div class="mx-auto grid w-full max-w-[1200px] grid-cols-[44px_1fr_44px] items-center gap-2 px-4 pb-2 pt-2.5">
       <button type="button" class="btn-icon -ml-1 shrink-0" @click="$dispatch('open-menu')" aria-label="Открыть меню">
         <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-list"/></svg>
       </button>
 
-      <a href="index.html" class="mx-auto flex shrink-0 items-center" aria-label="Новокурьинская — на главную">
+      <a href="index.html" class="flex justify-self-center" aria-label="Новокурьинская — на главную">
         <img src="assets/img/logo-novovoda.svg" alt="Вода «Новокурьинская»" width="111" height="72"
              class="h-9 w-auto" fetchpriority="high">
       </a>
 
-      <a href="#order" class="btn-primary btn-sm shrink-0 !rounded-xl !px-3 !py-2 !text-[13px]">Заказать воду</a>
+      <button type="button" @click="$dispatch('open-callback')" aria-label="Заказать обратный звонок"
+              class="grid h-11 w-11 shrink-0 place-items-center justify-self-end rounded-xl bg-[#31aaff] text-white transition hover:bg-[#1b93eb]">
+        <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-phone"/></svg>
+      </button>
     </div>
 
     <div class="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-3 px-4 pb-2.5">
@@ -631,7 +634,7 @@
 
 <!-- ================= HERO ================= -->
 <section id="promo" class="scroll-mt-40 bg-[#f0f5fd] pb-10">
-  <div class="mx-auto w-full max-w-[1200px] px-4 pt-10 lg:px-0">
+  <div class="mx-auto w-full max-w-[1200px] px-4 pt-3 sm:pt-10 lg:px-0">
     <h1 class="sr-only">Доставка питьевой воды «Новокурьинская» в Екатеринбурге и Свердловской области</h1>
 
     <div class="flex flex-col gap-5 lg:flex-row">
@@ -1784,6 +1787,7 @@
 </div>
 
 
+
 <!-- ================= КАТАЛОГ: НИЖНЯЯ ШТОРКА (телефон) ================= -->
 <div x-data="catalogSheet" @open-catalog.window="show()" @keydown.escape.window="close()">
   <div x-show="open" x-cloak class="fixed inset-0 z-[60] lg:hidden">
@@ -1879,6 +1883,7 @@
     </div>
   </div>
 </div>
+
 
 
 </body>
