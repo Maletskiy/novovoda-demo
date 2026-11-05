@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/img/triple-bottles-720.webp"
         imagesrcset="assets/img/triple-bottles-360.webp 360w, assets/img/triple-bottles-720.webp 720w"
         imagesizes="(min-width: 1024px) 500px, 90vw">
-<link rel="stylesheet" href="assets/app.css?v=55a8304b">
+<link rel="stylesheet" href="assets/app.css?v=dcc66d78">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -665,13 +665,48 @@
           <!-- один кадр: листание происходит внутри него.
                На десктопе кадр растягивается на всю высоту колонки, чтобы его
                низ совпадал с низом карточки заказа (как в макете). -->
-          <div class="slider-viewport relative h-[480px] overflow-hidden rounded-[40px] lg:h-auto lg:min-h-[500px] lg:flex-1"
+          <div :style="`--m-scale:${mScale}`" class="slider-viewport relative overflow-hidden rounded-[32px] max-sm:aspect-[358/480] sm:h-[480px] sm:rounded-[40px] lg:h-auto lg:min-h-[500px] lg:flex-1"
                :class="dragging && 'is-dragging'"
                @pointerdown="onDown($event)" @pointermove="onMove($event)" @pointerup="onUp()" @pointercancel="onUp()" @pointerleave="startX !== null && onUp()">
 
               <!-- слайд 1: автоповтор заказа (макет Paper) -->
               <div class="slider-slide absolute inset-0" :inert="index !== 0" :style="slideStyle(0)">
-                <div class="relative h-full overflow-hidden bg-[#1b93eb]">
+                              <!-- мобильный макет баннера 1 из Paper: канва 358×480 -->
+              <div class="m-canvas sm:hidden"
+                   style="background-image: linear-gradient(134.53deg in oklab, #003f86 3.5%, #0081cd 49.03%, #01c2ff 94.5%)">
+                <img src="assets/img/banner-arrow.webp" alt="" width="200" height="211" loading="lazy"
+                     class="absolute" style="left:184px; top:234px; width:200px; height:211px">
+
+                <div class="absolute" style="left:24px; top:24px; width:250px">
+                  <span class="inline-flex h-6 items-center gap-2.5 rounded-full bg-white/10 pl-2.5 pr-3.5">
+                    <span class="h-1 w-1 rounded-full bg-white"></span>
+                    <span class="text-[12px] font-semibold leading-4 text-white">Круглосуточно</span>
+                  </span>
+
+                  <h3 class="mt-5 text-[24px] font-bold leading-7 tracking-normal text-white">Автоповтор заказа за&nbsp;25&nbsp;секунд без оператора</h3>
+
+                  <ol class="mt-3 space-y-2">
+                    <li class="flex items-start gap-2">
+                      <span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-white/10 text-[12px] font-semibold leading-4 text-white">1</span>
+                      <span class="text-[14px] font-medium leading-5 text-white/80">Позвоните <a href="tel:+73432707777" class="underline decoration-white/40 underline-offset-2">+7 (343) 270-77-77</a></span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-white/10 text-[12px] font-semibold leading-4 text-white">2</span>
+                      <span class="text-[14px] font-medium leading-5 text-white/80">Нажмите 0 для выбора повтора заказа</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-white/10 text-[12px] font-semibold leading-4 text-white">3</span>
+                      <span class="text-[14px] font-medium leading-5 text-white/80">Укажите день и время доставки</span>
+                    </li>
+                  </ol>
+
+                  <button type="button" @click="$dispatch('open-callback')"
+                          class="mt-5 inline-flex h-12 items-center rounded-2xl bg-white px-5 text-[16px] font-semibold leading-6 text-[#0d6cb4]">Подключить</button>
+                  <p class="mt-4"><a href="#faq" class="text-[14px] font-semibold leading-5 text-white">Как это работает</a></p>
+                </div>
+              </div>
+
+              <div class="relative hidden h-full overflow-hidden sm:block bg-[#1b93eb]">
                   <div class="hero-slide-auto slider-layer absolute inset-0" :style="layerStyle(0)">
                     <div class="absolute inset-0" style="background-image: linear-gradient(135deg in oklab, #0d6cb4 0%, #1b93eb 50%, #70b0e0 100%)"></div>
                     <div class="absolute inset-0 hidden opacity-[0.12] sm:block" style="background-image: radial-gradient(circle in oklab, #ffffff 51.12%, #ffffff 0.07%, rgba(255,255,255,0) 0%)"></div>
@@ -714,7 +749,33 @@
 
               <!-- слайд 2: подарок за первый заказ (макет Paper 5V-0) -->
               <div class="slider-slide absolute inset-0" :inert="index !== 1" :style="slideStyle(1)">
-                <div class="relative h-full overflow-hidden bg-[#0b304a]">
+                              <!-- мобильный макет баннера 2 из Paper -->
+              <div class="m-canvas sm:hidden" style="background: #0b304a">
+                <div class="absolute inset-0"
+                     style="background-image: linear-gradient(99.65deg in oklab, #ffffff -9.44%, #31aaff 108.2%)"></div>
+                <div class="pointer-events-none absolute opacity-50 mix-blend-luminosity [rotate:270deg]"
+                     style="left:-245px; top:-70px; width:958px; height:478px; background-image: url('assets/img/hero-light-swirl.webp'); background-size: cover; background-position: 50% 50%"></div>
+                <div class="pointer-events-none absolute [rotate:332.27deg]"
+                     style="left:198px; top:-30px; width:249px; height:301px; background-image: url('assets/img/water-classic-19.webp'); background-size: 62% auto; background-position: 50% 50%; background-repeat: no-repeat"></div>
+                <div class="pointer-events-none absolute [rotate:27.02deg]"
+                     style="left:158px; top:152px; width:247px; height:301px; background-image: url('assets/img/water-classic-19.webp'); background-size: 62% auto; background-position: 50% 50%; background-repeat: no-repeat"></div>
+
+                <div class="absolute" style="left:24px; top:24px; width:240px">
+                  <span class="inline-flex h-6 items-center gap-2.5 rounded-full bg-[#0a1a33]/10 pl-2.5 pr-3.5">
+                    <span class="h-1 w-1 rounded-full bg-[#0a1a33]"></span>
+                    <span class="text-[12px] font-semibold leading-4 text-[#0a1a33]">Для новых клиентов</span>
+                  </span>
+
+                  <h3 class="mt-5 text-[24px] font-bold leading-7 tracking-normal text-[#0a1a33]">2 бутыля по 19 л в подарок на первый заказ</h3>
+
+                  <p class="mt-3 text-[14px] font-medium leading-5 text-[#0a1a33]/50">При первом заказе от двух бутылей — дарим ещё два. Доставим в удобный двухчасовой интервал</p>
+
+                  <a href="index.html#order" class="mt-5 inline-flex h-12 items-center rounded-2xl bg-[#0a1a33] px-5 text-[16px] font-semibold leading-6 text-white">Заказать воду</a>
+                  <p class="mt-4"><a href="#faq" class="text-[14px] font-semibold leading-5 text-[#0a1a33]">Условия акции</a></p>
+                </div>
+              </div>
+
+              <div class="relative hidden h-full overflow-hidden sm:block bg-[#0b304a]">
                   <div class="slider-layer absolute inset-0" :style="layerStyle(1)">
                     <div class="absolute inset-0" style="background-image: linear-gradient(101.47deg in oklab, #ffffff -9.5%, #31aaff 113.5%)"></div>
                     <div class="absolute -left-[119px] top-0 h-full w-[1181px] opacity-50" style="background-image: linear-gradient(187.04deg in oklab, #ffffff 6.25%, #32aaff 91.36%)"></div>
@@ -755,7 +816,31 @@
 
               <!-- слайд 3: стартовый набор (макет Paper 6T-0) -->
               <div class="slider-slide absolute inset-0" :inert="index !== 2" :style="slideStyle(2)">
-                <div class="relative h-full overflow-hidden bg-[#6f808e]">
+                              <!-- мобильный макет баннера 3 из Paper -->
+              <div class="m-canvas sm:hidden" style="background: #6f808e">
+                <div class="pointer-events-none absolute mix-blend-multiply"
+                     style="left:-110px; top:-1px; width:854px; height:481px; background-image: url('assets/img/hero-dark-ripple.webp'); background-size: cover; background-position: 50% 50%"></div>
+                <div class="pointer-events-none absolute [rotate:15.41deg]"
+                     style="left:148px; top:206px; width:215px; height:304px; background-image: url('assets/img/water-classic-19.webp'); background-size: cover; background-position: 50% 50%"></div>
+                <div class="pointer-events-none absolute [rotate:15.27deg]"
+                     style="left:204px; top:72px; width:190px; height:190px; background-image: url('assets/img/hero-pump.webp'); background-size: cover; background-position: 50% 50%"></div>
+
+                <div class="absolute" style="left:24px; top:24px; width:240px">
+                  <span class="inline-flex h-6 items-center gap-2.5 rounded-full bg-white/10 pl-2.5 pr-3.5">
+                    <span class="h-1 w-1 rounded-full bg-white"></span>
+                    <span class="text-[12px] font-semibold leading-4 text-white">Стартовый набор</span>
+                  </span>
+
+                  <h3 class="mt-5 text-[24px] font-bold leading-7 tracking-normal text-white">Вода + помпа -<br>Выгоднее на 15%</h3>
+
+                  <p class="mt-3 text-[14px] font-medium leading-5 text-white/80">Помпа Dolphin Eco за 550 ₽ вместо 650 ₽ при заказе воды на месяц вперёд</p>
+
+                  <a href="catalog.html" class="mt-5 inline-flex h-12 items-center rounded-2xl bg-white px-5 text-[16px] font-semibold leading-6 text-[#0d6cb4]">Собрать набор</a>
+                  <p class="mt-4"><a href="catalog.html" class="text-[14px] font-semibold leading-5 text-white">Все наборы</a></p>
+                </div>
+              </div>
+
+              <div class="relative hidden h-full overflow-hidden sm:block bg-[#6f808e]">
                   <div class="slider-layer absolute inset-0 bg-[#6f808e]" :style="layerStyle(2)">
                     <div class="absolute inset-0 mix-blend-multiply"
                          style="background-image: url('assets/img/hero-dark-ripple.webp'); background-size: cover; background-position: 50% 50%"></div>
@@ -1553,7 +1638,7 @@
   </div>
 </div>
 
-<script src="assets/app.js?v=49f3608a" defer></script>
+<script src="assets/app.js?v=b70aac5c" defer></script>
 <script src="assets/alpine.min.js" defer></script>
 
 <!-- ================= MODAL: УДАЛИТЬ ТОВАР ================= -->

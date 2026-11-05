@@ -363,6 +363,7 @@ document.addEventListener('alpine:init', () => {
     width: 680,
     artScale: 1,
     artScaleGift: 1,
+    mScale: 1,
     artX: 0,
     artY: 0,
 
@@ -379,6 +380,9 @@ document.addEventListener('alpine:init', () => {
            тянем композицию по высоте, иначе фактура обрывается.
            Телефон: композиция ужимается по ширине и уезжает вниз, чтобы
            бутыли и помпа стояли под текстом, а не поверх него. */
+        /* мобильная канва 358×480 тянется по ширине кадра */
+        this.mScale = w < 640 ? w / 358 : 1;
+
         if (w < 640) {
           const s = Math.min(0.62, Math.max(0.42, w / 640));
           this.artScale = s;
