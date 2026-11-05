@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/img/triple-bottles-720.webp"
         imagesrcset="assets/img/triple-bottles-360.webp 360w, assets/img/triple-bottles-720.webp 720w"
         imagesizes="(min-width: 1024px) 500px, 90vw">
-<link rel="stylesheet" href="assets/app.css?v=fb75b072">
+<link rel="stylesheet" href="assets/app.css?v=85eaeafc">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -672,11 +672,16 @@
               <!-- слайд 1: автоповтор заказа (макет Paper) -->
               <div class="slider-slide absolute inset-0" :inert="index !== 0" :style="slideStyle(0)">
                               <!-- мобильный макет баннера 1 из Paper: канва 358×480 -->
-              <div class="m-canvas sm:hidden"
-                   style="background-image: linear-gradient(134.53deg in oklab, #003f86 3.5%, #0081cd 49.03%, #01c2ff 94.5%)">
-                <img src="assets/img/banner-arrow.webp" alt="" width="200" height="211" loading="lazy"
-                     class="absolute" style="left:184px; top:234px; width:200px; height:211px">
+              <div class="m-canvas sm:hidden">
+                <!-- фон и арт едут с той же параллакс-раскладкой, что и на десктопе -->
+                <div class="m-layer absolute inset-0" :style="layerStyle(0)">
+                  <div class="absolute inset-0"
+                       style="background-image: linear-gradient(134.53deg in oklab, #003f86 3.5%, #0081cd 49.03%, #01c2ff 94.5%)"></div>
+                  <img src="assets/img/banner-arrow.webp" alt="" width="200" height="211" loading="lazy"
+                       class="absolute" style="left:184px; top:234px; width:200px; height:211px">
+                </div>
 
+                <div class="m-text absolute inset-0" :style="textStyle(0)">
                 <div class="absolute" style="left:24px; top:24px; width:250px">
                   <span class="inline-flex h-6 items-center gap-2.5 rounded-full bg-white/10 pl-2.5 pr-3.5">
                     <span class="h-1 w-1 rounded-full bg-white"></span>
@@ -703,6 +708,7 @@
                   <button type="button" @click="$dispatch('open-callback')"
                           class="mt-5 inline-flex h-12 items-center rounded-2xl bg-white px-5 text-[16px] font-semibold leading-6 text-[#0d6cb4]">Подключить</button>
                   <p class="mt-4"><a href="#faq" class="text-[14px] font-semibold leading-5 text-white">Как это работает</a></p>
+                </div>
                 </div>
               </div>
 
@@ -751,6 +757,7 @@
               <div class="slider-slide absolute inset-0" :inert="index !== 1" :style="slideStyle(1)">
                               <!-- мобильный макет баннера 2 из Paper -->
               <div class="m-canvas sm:hidden" style="background: #0b304a">
+                <div class="m-layer absolute inset-0" :style="layerStyle(1)">
                 <div class="absolute inset-0"
                      style="background-image: linear-gradient(99.65deg in oklab, #ffffff -9.44%, #31aaff 108.2%)"></div>
                 <div class="pointer-events-none absolute opacity-50 mix-blend-luminosity [rotate:270deg]"
@@ -759,7 +766,9 @@
                      style="left:198px; top:-30px; width:249px; height:301px; background-image: url('assets/img/water-classic-19.webp'); background-size: 62% auto; background-position: 50% 50%; background-repeat: no-repeat"></div>
                 <div class="pointer-events-none absolute [rotate:27.02deg]"
                      style="left:158px; top:152px; width:247px; height:301px; background-image: url('assets/img/water-classic-19.webp'); background-size: 62% auto; background-position: 50% 50%; background-repeat: no-repeat"></div>
+                </div>
 
+                <div class="m-text absolute inset-0" :style="textStyle(1)">
                 <div class="absolute" style="left:24px; top:24px; width:240px">
                   <span class="inline-flex h-6 items-center gap-2.5 rounded-full bg-[#0a1a33]/10 pl-2.5 pr-3.5">
                     <span class="h-1 w-1 rounded-full bg-[#0a1a33]"></span>
@@ -772,6 +781,7 @@
 
                   <a href="index.html#order" class="mt-5 inline-flex h-12 items-center rounded-2xl bg-[#0a1a33] px-5 text-[16px] font-semibold leading-6 text-white">Заказать воду</a>
                   <p class="mt-4"><a href="#faq" class="text-[14px] font-semibold leading-5 text-[#0a1a33]">Условия акции</a></p>
+                </div>
                 </div>
               </div>
 
@@ -818,13 +828,16 @@
               <div class="slider-slide absolute inset-0" :inert="index !== 2" :style="slideStyle(2)">
                               <!-- мобильный макет баннера 3 из Paper -->
               <div class="m-canvas sm:hidden" style="background: #6f808e">
+                <div class="m-layer absolute inset-0" :style="layerStyle(2)">
                 <div class="pointer-events-none absolute mix-blend-multiply"
                      style="left:-110px; top:-1px; width:854px; height:481px; background-image: url('assets/img/hero-dark-ripple.webp'); background-size: cover; background-position: 50% 50%"></div>
                 <div class="pointer-events-none absolute [rotate:15.41deg]"
                      style="left:148px; top:206px; width:215px; height:304px; background-image: url('assets/img/water-classic-19.webp'); background-size: cover; background-position: 50% 50%"></div>
                 <div class="pointer-events-none absolute [rotate:15.27deg]"
                      style="left:204px; top:72px; width:190px; height:190px; background-image: url('assets/img/hero-pump.webp'); background-size: cover; background-position: 50% 50%"></div>
+                </div>
 
+                <div class="m-text absolute inset-0" :style="textStyle(2)">
                 <div class="absolute" style="left:24px; top:24px; width:240px">
                   <span class="inline-flex h-6 items-center gap-2.5 rounded-full bg-white/10 pl-2.5 pr-3.5">
                     <span class="h-1 w-1 rounded-full bg-white"></span>
@@ -837,6 +850,7 @@
 
                   <a href="catalog.html" class="mt-5 inline-flex h-12 items-center rounded-2xl bg-white px-5 text-[16px] font-semibold leading-6 text-[#0d6cb4]">Собрать набор</a>
                   <p class="mt-4"><a href="catalog.html" class="text-[14px] font-semibold leading-5 text-white">Все наборы</a></p>
+                </div>
                 </div>
               </div>
 
