@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/img/triple-bottles-720.webp"
         imagesrcset="assets/img/triple-bottles-360.webp 360w, assets/img/triple-bottles-720.webp 720w"
         imagesizes="(min-width: 1024px) 500px, 90vw">
-<link rel="stylesheet" href="assets/app.css?v=26112a8c">
+<link rel="stylesheet" href="assets/app.css?v=a4cdde15">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -760,12 +760,8 @@
                 <div class="m-layer absolute inset-0" :style="layerStyle(1)">
                 <div class="absolute inset-0"
                      style="background-image: linear-gradient(99.65deg in oklab, #ffffff -9.44%, #31aaff 108.2%)"></div>
-                <!-- вместо статичного вихря — зацикленное видео с водой;
-                     постер из первого кадра, чтобы не было вспышки до загрузки -->
-                <video class="m-water pointer-events-none absolute inset-0 h-full w-full object-cover"
-                       src="assets/video/aqua-bg-720.mp4" poster="assets/img/aqua-bg-poster.webp"
-                       muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"
-                       x-effect="if (!narrow || matchMedia('(prefers-reduced-motion: reduce)').matches) { $el.pause(); } else if (index === 1 && !document.hidden) { $el.play().catch(() => {}); } else { $el.pause(); }"></video>
+                <div class="pointer-events-none absolute opacity-50 mix-blend-luminosity [rotate:270deg]"
+                     style="left:-245px; top:-70px; width:958px; height:478px; background-image: url('assets/img/hero-light-swirl.webp'); background-size: cover; background-position: 50% 50%"></div>
                 <div class="pointer-events-none absolute [rotate:332.27deg]"
                      style="left:198px; top:-30px; width:249px; height:301px; background-image: url('assets/img/water-classic-19.webp'); background-size: 62% auto; background-position: 50% 50%; background-repeat: no-repeat"></div>
                 <div class="pointer-events-none absolute [rotate:27.02deg]"
@@ -793,14 +789,10 @@
                   <div class="slider-layer absolute inset-0" :style="layerStyle(1)">
                     <div class="absolute inset-0" style="background-image: linear-gradient(101.47deg in oklab, #ffffff -9.5%, #31aaff 113.5%)"></div>
                     <div class="absolute -left-[119px] top-0 h-full w-[1181px] opacity-50" style="background-image: linear-gradient(187.04deg in oklab, #ffffff 6.25%, #32aaff 91.36%)"></div>
-                    <!-- тот же живой фон, что и на телефоне: видео вместо статичного вихря.
-                         Слой на весь кадр (а не в канве 680×532), лежит поверх градиентов и под бутылями -->
-                    <video class="d-water pointer-events-none absolute inset-0 h-full w-full object-cover"
-                           src="assets/video/aqua-bg-720.mp4" poster="assets/img/aqua-bg-poster.webp"
-                           muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"
-                           x-effect="if (narrow || matchMedia('(prefers-reduced-motion: reduce)').matches) { $el.pause(); } else if (index === 1 && !document.hidden) { $el.play().catch(() => {}); } else { $el.pause(); }"></video>
                     <div class="hero-canvas hero-canvas-gift absolute right-0 bottom-0 top-auto h-[532px] w-[680px] sm:bottom-auto sm:top-0"
                          :style="`--art-scale:${artScaleGift}; --art-x:${artX}px; --art-y:${artY}px`">
+                    <div class="absolute left-[-120px] top-[536px] h-[1080px] w-[540px] origin-top-left rotate-[270deg] opacity-50 mix-blend-luminosity max-sm:hidden"
+                         style="background-image: url('assets/img/hero-light-swirl.webp'); background-size: cover; background-position: 50% 50%"></div>
                     <div class="absolute left-0 top-0 h-[414px] w-[221px] origin-top-left rotate-[332.27deg]"
                          style="translate: 323.002px 8.003px; background-image: url('assets/img/water-classic-19.webp'); background-size: cover; background-position: 50% 50%"></div>
                     <div class="absolute left-0 top-0 h-[414px] w-[221px] origin-top-left rotate-[27.02deg]"
@@ -1664,7 +1656,7 @@
   </div>
 </div>
 
-<script src="assets/app.js?v=6e5e026e" defer></script>
+<script src="assets/app.js?v=b70aac5c" defer></script>
 <script src="assets/alpine.min.js" defer></script>
 
 <!-- ================= MODAL: УДАЛИТЬ ТОВАР ================= -->
