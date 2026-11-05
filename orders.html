@@ -615,8 +615,10 @@
   <!-- ================= CABINET LAYOUT ================= -->
   <div class="shell mt-6 grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-[248px_minmax(0,1fr)] lg:gap-6">
 
-    <!-- ---------- sidebar ---------- -->
-    <aside class="lg:sticky lg:top-40 lg:self-start" aria-label="Разделы личного кабинета">
+    <!-- ---------- sidebar ----------
+         на телефоне разделами кабинета не засоряем: туда возвращаются стрелкой,
+         а «Нужна помощь с заказом?» дублирует плашку на главной кабинета -->
+    <aside class="max-lg:hidden lg:sticky lg:top-40 lg:self-start" aria-label="Разделы личного кабинета">
       <div class="card overflow-hidden p-2">
         <a href="account.html" class="dropdown-item !justify-start gap-2.5 !py-2.5">
           <svg class="h-4 w-4 text-ink-mute" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-user"/></svg>
@@ -676,7 +678,7 @@
 
       <!-- list -->
       <div class="mt-4 space-y-3">
-        <template x-for="order in filtered" :key="order.id">
+        <template x-for="order in shown" :key="order.id">
           <article class="card overflow-hidden">
             <!-- header -->
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 px-4 py-3">
@@ -737,6 +739,18 @@
         </template>
       </div>
 
+      <!-- «загрузить ещё»: не вываливаем всю историю одним полотном -->
+      <div x-show="hiddenCount > 0" x-cloak class="mt-4 flex flex-col items-center gap-2">
+        <button type="button" @click="more()"
+                class="btn-ghost w-full sm:w-auto">
+          <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-caret-down"/></svg>
+          Загрузить ещё
+        </button>
+        <p class="text-[12px] text-ink-mute">
+          Показано <span x-text="shown.length"></span> из <span x-text="filtered.length"></span>
+        </p>
+      </div>
+
       <!-- empty -->
       <div x-show="filtered.length === 0" x-cloak class="card mt-4 p-10 text-center">
         <span class="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-navy-50 text-navy-500">
@@ -769,6 +783,12 @@
       query: '',
       open: null,
       cancelId: null,
+      /* история показывается порциями: 22 заказа одним списком — это простыня,
+         которую на телефоне никто не долистает. На телефоне порция меньше. */
+      limit: 5,
+      get pageSize() {
+        return window.matchMedia('(min-width: 1024px)').matches ? 8 : 5;
+      },
 
       tabs: [
         { id: 'all', label: 'Все' },
@@ -788,6 +808,25 @@
           const okTab = this.tab === 'all' || o.status === this.tab;
           const okQuery = !q || o.id.includes(q) || o.address.toLowerCase().includes(q);
           return okTab && okQuery;
+        });
+      },
+
+      /* сколько заказов показано сейчас и сколько осталось «за кнопкой» */
+      get shown() {
+        return this.filtered.slice(0, this.limit);
+      },
+      get hiddenCount() {
+        return Math.max(0, this.filtered.length - this.limit);
+      },
+      more() {
+        this.limit += this.pageSize;
+      },
+
+      init() {
+        this.limit = this.pageSize;
+        /* сменили вкладку или поиск — снова начинаем с первой порции */
+        this.$watch(() => [this.tab, this.query], () => {
+          this.limit = this.pageSize;
         });
       },
 
