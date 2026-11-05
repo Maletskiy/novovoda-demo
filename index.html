@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/img/triple-bottles-720.webp"
         imagesrcset="assets/img/triple-bottles-360.webp 360w, assets/img/triple-bottles-720.webp 720w"
         imagesizes="(min-width: 1024px) 500px, 90vw">
-<link rel="stylesheet" href="assets/app.css?v=dcc66d78">
+<link rel="stylesheet" href="assets/app.css?v=b5cc4e94">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -611,8 +611,8 @@
                class="h-9 w-auto" fetchpriority="high">
         </a>
         <button type="button" @click="open = false" aria-label="Закрыть меню"
-                class="grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-white text-ink-mute transition hover:bg-slate-50 hover:text-ink">
-          <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-x"/></svg>
+                class="grid h-8 w-8 place-items-center rounded-full border border-slate-200 bg-white text-ink-mute transition hover:bg-slate-50 hover:text-ink">
+          <svg class="h-3.5 w-3.5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-x"/></svg>
         </button>
       </div>
 
@@ -1870,8 +1870,8 @@
       <div class="relative flex items-center justify-center pb-1 pt-3">
         <span class="h-1.5 w-12 rounded-full bg-slate-200"></span>
         <button type="button" @click="close()" aria-label="Закрыть"
-                class="absolute right-3 top-2 grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-white text-ink-mute transition hover:bg-slate-50 hover:text-ink">
-          <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-x"/></svg>
+                class="absolute right-3 top-2.5 grid h-8 w-8 place-items-center rounded-full border border-slate-200 bg-white text-ink-mute transition hover:bg-slate-50 hover:text-ink">
+          <svg class="h-3.5 w-3.5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-x"/></svg>
         </button>
       </div>
 
@@ -1898,6 +1898,8 @@
 
 
 
+
+
 <!-- ================= КАТАЛОГ: НИЖНЯЯ ШТОРКА (телефон) ================= -->
 <div x-data="catalogSheet" @open-catalog.window="show()" @keydown.escape.window="close()">
   <div x-show="open" x-cloak class="fixed inset-0 z-[60] lg:hidden">
@@ -1917,8 +1919,8 @@
       <div class="relative flex items-center justify-center pb-1 pt-3">
         <span class="h-1.5 w-12 rounded-full bg-slate-200"></span>
         <button type="button" @click="close()" aria-label="Закрыть"
-                class="absolute right-3 top-2 grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-white text-ink-mute transition hover:bg-slate-50 hover:text-ink">
-          <svg class="h-4 w-4" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-x"/></svg>
+                class="absolute right-3 top-2.5 grid h-8 w-8 place-items-center rounded-full border border-slate-200 bg-white text-ink-mute transition hover:bg-slate-50 hover:text-ink">
+          <svg class="h-3.5 w-3.5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-x"/></svg>
         </button>
       </div>
 
@@ -1993,6 +1995,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 
