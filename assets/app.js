@@ -377,7 +377,9 @@ document.addEventListener('alpine:init', () => {
         if (!el) return;
         const w = el.clientWidth;
         const h = el.clientHeight;
-        this.narrow = w < 640;
+        /* «телефон» — это ширина окна, а не кадра: на 1024 px кадр слайдера
+           всего 504 px, и по нему мы бы ошибочно включали мобильную раскладку */
+        this.narrow = window.matchMedia('(max-width: 639.98px)').matches;
         /* Макет баннеров нарисован в канве 680×532.
            Десктоп: кадр бывает выше макета (высоту задаёт правая колонка) —
            тянем композицию по высоте, иначе фактура обрывается.
