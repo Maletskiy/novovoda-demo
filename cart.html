@@ -195,11 +195,11 @@
 
       <a href="index.html" class="flex justify-self-center" aria-label="Новокурьинская — на главную">
         <img src="assets/img/logo-novovoda.svg" alt="Вода «Новокурьинская»" width="111" height="72"
-             class="h-9 w-auto" fetchpriority="high">
+             class="h-10 w-auto" fetchpriority="high">
       </a>
 
       <button type="button" @click="$dispatch('open-callback')" aria-label="Заказать обратный звонок"
-              class="grid h-11 w-11 shrink-0 place-items-center justify-self-end rounded-xl bg-[#31aaff] text-white transition hover:bg-[#1b93eb]">
+              class="grid h-11 w-11 shrink-0 place-items-center justify-self-end rounded-2xl bg-[#31aaff] text-white transition hover:bg-[#1b93eb]">
         <svg class="h-5 w-5" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-phone"/></svg>
       </button>
     </div>
@@ -1781,6 +1781,7 @@
 
 
 
+
 <!-- ================= MOBILE MENU DRAWER ================= -->
 <div x-data="{ open: false }" @open-menu.window="open = true"
      @keydown.escape.window="open = false">
@@ -1928,6 +1929,7 @@
     </div>
   </div>
 </div>
+
 
 
 
