@@ -366,6 +366,8 @@ document.addEventListener('alpine:init', () => {
     mScale: 1,
     artX: 0,
     artY: 0,
+    /* мобильная раскладка включена — по ней решаем, играть ли видео в баннере */
+    narrow: false,
 
     init() {
       /* макет баннеров нарисован в канве 680×532 — на узких экранах
@@ -375,6 +377,7 @@ document.addEventListener('alpine:init', () => {
         if (!el) return;
         const w = el.clientWidth;
         const h = el.clientHeight;
+        this.narrow = w < 640;
         /* Макет баннеров нарисован в канве 680×532.
            Десктоп: кадр бывает выше макета (высоту задаёт правая колонка) —
            тянем композицию по высоте, иначе фактура обрывается.
