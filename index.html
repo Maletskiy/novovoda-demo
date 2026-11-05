@@ -22,7 +22,7 @@
 <link rel="preload" as="image" href="assets/img/triple-bottles-720.webp"
         imagesrcset="assets/img/triple-bottles-360.webp 360w, assets/img/triple-bottles-720.webp 720w"
         imagesizes="(min-width: 1024px) 500px, 90vw">
-<link rel="stylesheet" href="assets/app.css?v=eea71e3a">
+<link rel="stylesheet" href="assets/app.css?v=fb75b072">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -1109,9 +1109,11 @@
 <div x-data="draftTeaser">
   <section id="draft" class="scroll-mt-40 pb-24 pt-2 lg:pb-20">
     <div class="shell">
-      <div class="relative overflow-hidden rounded-4xl border border-white bg-gradient-to-br from-[#eef6ff] via-white to-[#f4faff] p-6 shadow-[0_30px_80px_-48px_rgba(10,26,51,.45)] sm:p-10 lg:p-14">
-        <div class="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full bg-[#31aaff]/15 blur-3xl"></div>
-        <div class="pointer-events-none absolute -bottom-32 -left-24 h-72 w-72 rounded-full bg-[#1d366d]/10 blur-3xl"></div>
+      <div class="relative isolate overflow-hidden rounded-4xl border border-white bg-gradient-to-br from-[#eef6ff] via-white to-[#f4faff] p-6 shadow-[0_30px_80px_-48px_rgba(10,26,51,.45)] sm:p-10 lg:p-14">
+        <!-- размытые пятна: на телефоне их blur вылезал за скруглённые углы,
+             поэтому там они скрыты, а карточка получила isolate -->
+        <div class="pointer-events-none absolute -right-24 -top-28 hidden h-72 w-72 rounded-full bg-[#31aaff]/15 blur-3xl sm:block"></div>
+        <div class="pointer-events-none absolute -bottom-32 -left-24 hidden h-72 w-72 rounded-full bg-[#1d366d]/10 blur-3xl sm:block"></div>
         <svg class="pointer-events-none absolute -bottom-12 right-2 hidden h-64 w-64 text-[#31aaff]/[0.07] lg:block" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor"><use href="#ph-drop"/></svg>
 
         <div class="relative mx-auto max-w-3xl text-center">
