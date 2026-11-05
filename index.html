@@ -833,10 +833,16 @@
                               <!-- мобильный макет баннера 3 из Paper -->
               <div class="m-canvas sm:hidden" style="background: #6f808e">
                 <div class="m-layer absolute inset-0" :style="layerStyle(2)">
+                <!-- серая подложка обязана лежать ВНУТРИ .m-layer: слой трансформирован,
+                     то есть образует свой контекст наложения, и multiply иначе умножает
+                     рябь на прозрачность — затемнение пропадает -->
+                <div class="absolute inset-0" style="background: #6f808e"></div>
                 <div class="pointer-events-none absolute mix-blend-multiply"
                      style="left:-110px; top:-1px; width:854px; height:481px; background-image: url('assets/img/hero-dark-ripple.webp'); background-size: cover; background-position: 50% 50%"></div>
+                <!-- contain, а не cover: арт 350×655 в боксе 215×304 при cover
+                     растягивался до 215×402 и обрезался по высоте — бутыль выглядела крупнее макета -->
                 <div class="pointer-events-none absolute [rotate:15.41deg]"
-                     style="left:148px; top:206px; width:215px; height:304px; background-image: url('assets/img/water-classic-19.webp'); background-size: cover; background-position: 50% 50%"></div>
+                     style="left:186px; top:267px; width:172px; height:243px; background-image: url('assets/img/water-classic-19.webp'); background-size: contain; background-position: 50% 50%; background-repeat: no-repeat"></div>
                 <div class="pointer-events-none absolute [rotate:15.27deg]"
                      style="left:204px; top:72px; width:190px; height:190px; background-image: url('assets/img/hero-pump.webp'); background-size: cover; background-position: 50% 50%"></div>
                 </div>
